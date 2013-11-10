@@ -1,0 +1,125 @@
+#
+# bspwm hotkeys
+#
+
+super + alt + Escape
+    bspc quit
+
+# Close current window
+alt + w
+    bspc window -c
+
+# Kind of full screen
+#alt + t
+#    bspc desktop -l next
+
+# Presets window distribution
+alt + b
+    bspc desktop -B
+
+# s - float / f - fullscreen
+alt + {s,f}
+    bspc window -t {floating,fullscreen}
+
+#alt + {grave,Tab}
+#    bspc {window,desktop} -f last
+
+#alt + apostrophe
+#    bspc window -s last
+
+# Focus next window
+alt + Tab
+  bspc window -f next
+
+# Focus previous window
+alt + shift + Tab
+  bspc window -f prev
+
+# Focus {h,j,k,l} window
+alt + {h,j,k,l}
+  bspc window -f {left,down,up,right}
+
+#alt + {o,i}
+#    bspc control --record-history off; \
+#    bspc window {older,newer} -f; \
+#    bspc control --record-history on
+
+#alt + y
+#    bspc window -w last.manual
+
+# Move current window to the biggest spot
+#alt + m
+#    bspc window -s biggest
+
+# Move window to the {h,j,k,l} position
+alt + shift + {h,j,k,l}
+    bspc window -s {left,down,up,right}
+
+#alt + {_,shift + }c
+#    bspc window -f {next,prev}
+
+# Move window back and forward
+alt + {comma,period}
+    bspc desktop -C {backward,forward}
+
+# Cycle through desktops
+alt + bracket{left,right}
+    bspc desktop -f {prev,next}
+
+# Move through desktop
+ctrl + alt + {_,shift +}Tab
+    bspc desktop -f {next,prev}
+
+# Create a new window on the given spot
+alt + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+
+# alt+ctrl+space cancel spot selection
+alt + ctrl + {_,shift + }space
+    bspc {window -p cancel,desktop -c}
+
+# Increase window width or height
+super + {h,j,k,l}
+    bspc window -e {left,down,up,right} push
+
+# Decrease window width or height
+super + shift + {h,j,k,l}
+    bspc window -e {right,up,down,left} pull
+
+#alt + ctrl + {1-9}
+#    bspc window -r 0.{1-9}
+
+# Go to or move to a window to given destop
+alt + {_,shift + }{1-9,0}
+    bspc {desktop -f,window -d} ^{1-9,10}
+
+# Mouse pointer raises focus on window
+~button1
+    bspc pointer -g focus
+
+# Mouse button to move and resize
+alt + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+#alt + !button{1-3}
+#    bspc pointer -t %i %i
+
+#alt + @button{1-3}
+#    bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+alt + Return
+    gnome-terminal
+
+alt + space
+    dmenu_run
+
+# make sxhkd reload its configuration files:
+alt + Escape
+    pkill -USR1 -x sxhkd
+
+alt + Print
+  scrot -d5 -e "mv \$f ~/Pictures/"

@@ -1,0 +1,32 @@
+#! /bin/sh
+PANEL_HEIGHT=18
+FONT_FAMILY='sans-serif'
+FONT_SIZE=10
+PANEL_FIFO=/tmp/panel-fifo
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+    printf "%s\n" "The panel is already running." >&2
+    exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+flavor=${1:-bar}
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+bspc config top_padding $PANEL_HEIGHT
+bspc control --subscribe > "$PANEL_FIFO" &
+
+case "$flavor" in
+    bar)
+        cat "$PANEL_FIFO" | ./panels/bar  &
+        ;;
+    dzen2)
+        . ./panels/colors
+        cat "$PANEL_FIFO" | ./panels/dzen2 -f "$FONT_FAMILY" -s "$FONT_SIZE" | dzen2 -h $PANEL_HEIGHT -ta l -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND" &
+        ;;
+esac
+
+wait
