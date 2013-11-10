@@ -11,20 +11,26 @@ My bspwm settings and custom configurations.
 
 * Follow the installation guide of BSPWM. Basically:
 
-  * Compile & install BSPWM
-        git clone https://github.com/baskerville/bspwm.git
-        cd bspwm
-        make && make install
+  - Compile & install BSPWM
 
-  * Compile and install SXHKD
-      git clone https://github.com/baskerville/sxhkd.git
-      cd sxhkd
-      make && make install
+          git clone https://github.com/baskerville/bspwm.git
+          cd bspwm
+          make && make install
+       
+
+  - Compile and install SXHKD
+
+          git clone https://github.com/baskerville/sxhkd.git
+          cd sxhkd
+          make && make install
+       
 
   * Be sure to have the following packages installed
-        - libxcb
-        - xcb-util
-        - xcb-util-wm
+
+          libxcb
+          xcb-util
+          xcb-util-wm
+       
 
 * Set up custom configuration (this repo)
 
