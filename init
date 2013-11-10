@@ -1,0 +1,18 @@
+#!/bin/bash
+# init script
+bspdir=$(dirname $(readlink -f $0))
+cd $bspdir
+
+# gnome settings daemon (for fonts and gtk styling)
+gnome-settings-daemon &
+
+# set background
+# gsettings set org.gnome.desktop.background picture-uri file:///home/user/Pictures/wallpaper.png
+#~/.fehbg &
+
+# launch dzen2 panel
+$bspdir/panel dzen2 &
+
+# gnome terminals
+#gnome-terminal &
+#  gnome-terminal -e ranger &
