@@ -11,7 +11,7 @@ My bspwm settings and custom configurations.
 
 * Follow the installation guide of BSPWM. Basically:
 
-  - Compile & install BSPWM
+  - Compile and install BSPWM
 
           git clone https://github.com/baskerville/bspwm.git
           cd bspwm
@@ -31,6 +31,9 @@ My bspwm settings and custom configurations.
           xcb-util
           xcb-util-wm
        
+* If you want to use Compton configure the path to it on init:
+
+          compton=~/.compton/
 
 * Set up custom configuration (this repo)
 

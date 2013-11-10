@@ -1,5 +1,6 @@
 #!/bin/bash
 # init script
+compton=~/.compton/
 bspdir=$(dirname $(readlink -f $0))
 cd $bspdir
 
@@ -16,3 +17,6 @@ $bspdir/panel dzen2 &
 # gnome terminals
 #gnome-terminal &
 #  gnome-terminal -e ranger &
+
+[[ -e $compton/compton ]] \
+  && $compton/compton --config $compton/compton.conf
