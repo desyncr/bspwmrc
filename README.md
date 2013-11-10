@@ -5,7 +5,7 @@ My bspwm settings and custom configurations.
 
 ## Screenshot
 
-![Screenshot](https://github.com/asphxia/bspwmrc/blob/master/screenshot.png?raw=true)
+![Screenshot](https://github.com/desyncr/bspwmrc/blob/master/screenshot.png?raw=true)
 
 ## Setup
 
