@@ -25,22 +25,48 @@ My bspwm settings and custom configurations.
           make && make install
        
 
+   - Update your system to integrate the changes:
+   
+          - Open up `~/.xinitrc` and add the following to the bottom:
+
+                  sxhkd &
+                    exec bspwm
+                
+          - Make .xinitrc executable
+
+                  chmod +x ~/.xinitrc
+
+    - Create an entry for your login manager, if any:
+    
+          - Make the file `/usr/share/xsessions/bspwm.desktop` and add the following to it:
+
+                  [Desktop Entry]
+                  Encoding=UTF-8
+                  Name=BSPWM
+                  Comment=Binary Space Partitioning Window Manager
+                  Exec=xinitrc
+                  Type=XSession
+
+          - Link your .xinitrc to an executable file in your path
+                  
+                  ln -s ~/.xinitrc /usr/bin/xinitrc
+
   * Be sure to have the following packages installed
 
           libxcb
           xcb-util
           xcb-util-wm
        
-* If you want to use Compton configure the path to it on init:
-
-          compton=~/.compton/
-
 * Set up custom configuration (this repo)
 
         git clone http://github.com/desyncr/bspwmrc.git
         cd bspwmrc
         ln -s $PWD ~/.config/bspwm
         ln -s $PWD ~/.config/sxhkd
+        
+* If you want to use Compton configure the path to it on init:
+
+          compton=~/.compton/
 
 
 ## Contact and Feedback
