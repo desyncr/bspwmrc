@@ -9,7 +9,7 @@ My bspwm settings and custom configurations.
 
 ## Setup
 
-* Follow the installation guide of BSPWM. Basically:
+* Follow the [installation guide](https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies) of BSPWM. Basically:
 
   - Compile and install BSPWM
 
@@ -61,10 +61,14 @@ My bspwm settings and custom configurations.
 
         git clone http://github.com/desyncr/bspwmrc.git
         cd bspwmrc
-        ln -s $PWD ~/.config/bspwm
-        ln -s $PWD ~/.config/sxhkd
         
-* If you want to use Compton configure the path to it on init:
+        mv ~/.config/bspwm ~/.config/bspwm.$(date +%s) && \
+          ln -s $PWD ~/.config/bspwm
+        
+        mv ~/.config/sxhkd ~/.config/sxhkd.$(date +%s) && \
+          ln -s $PWD ~/.config/sxhkd
+        
+* If you want to use Compton configure the path to it on ``init``:
 
           compton=~/.compton/
 
