@@ -115,8 +115,11 @@ alt + minus
 alt + equal
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` - 5 ))
 
-alt + shift + equal
+alt + shift + 0
     bspc config -d focused window_gap 0
+
+alt + shift + equal
+    bspc config -d focused window_gap 10
 
 # Toggle panel
 #alt + q
@@ -138,3 +141,13 @@ alt + Escape
 
 alt + Print
     scrot -d3 -e "mv \$f ~/Pictures/"
+
+
+ctrl + shift + c
+    chromium
+
+ctrl + shift + z
+    zend
+
+ctrl + shift + s
+    subl
