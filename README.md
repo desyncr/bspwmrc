@@ -9,7 +9,7 @@ My bspwm settings and custom configurations.
 
 ## Setup
 
-* Follow the installation guide of BSPWM. Basically:
+* Follow the [installation guide](https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies) of BSPWM. Basically:
 
   - Compile and install BSPWM
 
@@ -25,22 +25,57 @@ My bspwm settings and custom configurations.
           make && make install
        
 
+   - Update your system to integrate the changes:
+   
+          - Open up `~/.xinitrc` and add the following to the bottom:
+
+                sxhkd &
+                  exec bspwm
+                
+          - Make .xinitrc executable
+
+                chmod +x ~/.xinitrc
+
+    - Create an entry for your login manager, if any:
+    
+          - Make the file `/usr/share/xsessions/bspwm.desktop` and add the following to it:
+
+                [Desktop Entry]
+                Encoding=UTF-8
+                Name=BSPWM
+                Comment=Binary Space Partitioning Window Manager
+                Exec=xinitrc
+                Type=XSession
+
+          - Link your .xinitrc to an executable file in your path
+                  
+                ln -s ~/.xinitrc /usr/bin/xinitrc
+
   * Be sure to have the following packages installed
 
-          libxcb
-          xcb-util
-          xcb-util-wm
+        libxcb
+        xcb-util
+        xcb-util-wm
+          
+    Other dependencies include:
+    
+        libxft-dev
+        libx11-dev
        
-* If you want to use Compton configure the path to it on init:
-
-          compton=~/.compton/
-
 * Set up custom configuration (this repo)
 
         git clone http://github.com/desyncr/bspwmrc.git
         cd bspwmrc
-        ln -s $PWD ~/.config/bspwm
-        ln -s $PWD ~/.config/sxhkd
+        
+        mv ~/.config/bspwm ~/.config/bspwm.$(date +%s) && \
+          ln -s $PWD ~/.config/bspwm
+        
+        mv ~/.config/sxhkd ~/.config/sxhkd.$(date +%s) && \
+          ln -s $PWD ~/.config/sxhkd
+        
+* If you want to use Compton configure the path to it on ``init``:
+
+        compton=~/.compton/
 
 
 ## Contact and Feedback
