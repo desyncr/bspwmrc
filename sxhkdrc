@@ -90,7 +90,7 @@ super + shift + {h,j,k,l}
 #alt + ctrl + {1-9}
 #    bspc window -r 0.{1-9}
 
-# Go to or move to a window to given destop
+# Go to or move to a window to given desktop
 alt + {_,shift + }{1-9,0}
     bspc {desktop -f,window -d} ^{1-9,10}
 
@@ -115,23 +115,21 @@ alt + minus
 alt + equal
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` - 5 ))
 
-alt + shift + 0
+alt + shift + minus
     bspc config -d focused window_gap 0
 
 alt + shift + equal
     bspc config -d focused window_gap 10
 
-# Toggle panel
-#alt + q
-#    {pkill panel; pkill dzen2; bspc config top_padding 0 , bspc config top_padding 15; panel dzen2 &;}
-
 #
 # wm independent hotkeys
 #
 
+# Launch terminal
 alt + Return
     gnome-terminal
 
+# Show dmenu bar
 alt + space
     dmenu_run -b -p '>' -nf '#aaaaaa' -nb '#040404' -sf '#ffffff' -sb '#000000'
 
@@ -139,15 +137,18 @@ alt + space
 alt + Escape
     pkill -USR1 -x sxhkd
 
+# Take an screenshot
 alt + Print
     scrot -d3 -e "mv \$f ~/Pictures/"
 
-
+# Launch chromium
 ctrl + shift + c
     chromium
 
+# Launch zend
 ctrl + shift + z
     zend
 
+# Launch sublime
 ctrl + shift + s
     subl
