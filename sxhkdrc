@@ -144,11 +144,3 @@ alt + Print
 # Launch chromium
 ctrl + shift + c
     chromium
-
-# Launch zend
-ctrl + shift + z
-    zend
-
-# Launch sublime
-ctrl + shift + s
-    subl
