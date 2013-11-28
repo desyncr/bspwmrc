@@ -119,7 +119,7 @@ alt + shift + minus
     bspc config -d focused window_gap 0
 
 alt + shift + equal
-    bspc config -d focused window_gap 10
+    bspc config -d focused window_gap 15
 
 #
 # wm independent hotkeys
