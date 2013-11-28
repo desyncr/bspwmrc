@@ -1,5 +1,5 @@
 #! /bin/sh
-PANEL_HEIGHT=16
+PANEL_HEIGHT=14
 FONT_FAMILY='lucidasans-8'
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_ID=${4:-panel}
