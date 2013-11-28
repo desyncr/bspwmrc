@@ -11,6 +11,7 @@ fi
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 flavor=${1:-bar}
+sleep_interval=${5:-60}
 position=${2:-top}
 case "$position" in
   top)
@@ -32,15 +33,16 @@ case "$flavor" in
         cat "$PANEL_FIFO" | ./panels/bar  &
         ;;
     dzen2)
+        ./panels/update "$PANEL_FIFO" $sleep_interval &
         . ./panels/colors
-        cat "$PANEL_FIFO"\
+        cat "$PANEL_FIFO" \
           | ./panels/$INFO_SOURCE \
           | dzen2 -fn "$FONT_FAMILY" -y $position -h $PANEL_HEIGHT\
               -ta l -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"\
             &
         ;;
     dzen2-status)
-        ./panels/dzen2-status
+        ./panels/dzen2-status &
 esac
 
 wait

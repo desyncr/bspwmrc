@@ -1,0 +1,8 @@
+#!/bin/bash
+PANEL_FIFO=$1
+SLEEP_INTERVAL=$2
+
+while true; do
+    echo>"$PANEL_FIFO";
+    sleep $SLEEP_INTERVAL;
+done;

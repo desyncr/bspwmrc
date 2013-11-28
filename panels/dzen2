@@ -8,6 +8,9 @@ font_size=5
 
 adaptive_centering=0
 screen_width=1768
+center_width=460
+center_indent=$(( (screen_width - center_width) / 2 ))
+
 NORMIFS=$IFS
 FIELDIFS=':'
 PADDING=' '
@@ -33,18 +36,6 @@ shift $((OPTIND - 1))
 
 while read -r line ; do
     case $line in
-        S*)
-            #mem=$(free -th|grep 'Swap: '|sed 's/\s\s//g'|cut -d' ' -f4)
-            mem=$(free -m | grep '-' | awk '{print $3}')
-            vol=$(amixer get Master | awk '/Front\ Left:/ {print $5}' | tr -d '[]%')
-            hdd=$(df -h /home | awk '/home/ {print $5}')
-
-            sys_infos="^fg($COLOR_STATUS_FG)^bg($COLOR_STATUS_BG)${PADDING}MEM $mem MiB | Vol $vol | HDD $hdd${PADDING}^fg()^bg()${PADDING}"
-            ;;
-        T*)
-            # xtitle output
-            title="^fg($COLOR_TITLE_FG)^bg($COLOR_TITLE_BG)${PADDING}${line#?}${PADDING}^fg()^bg()"
-            ;;
         W*)
             # bspwm internal state
             wm_infos="$PADDING"
@@ -101,22 +92,5 @@ while read -r line ; do
             IFS=$NORMIFS
             ;;
     esac
-    set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^[a-z]\+([^)]*)//g')
-    left_width=$1
-    center_width=460
-    right_width=$3
-    left_indent=0
-    right_indent=$((screen_width - right_width))
-    right_indent=1150
-    available_center=$((screen_width - (left_width + right_width)))
-    if [ $available_center -lt $center_width ] ; then
-        center_indent=$((left_indent + left_width))
-    else
-        if [ $adaptive_centering -eq 1 ] ; then
-            center_indent=$((left_width + (available_center - center_width) / 2))
-        else
-            center_indent=$(( (screen_width - center_width) / 2 ))
-        fi
-    fi
     printf "%s\n" "$wm_infos^pa($center_indent)$(date "+%a %H:%M")"
 done
