@@ -18,4 +18,4 @@ TEXT
 ^i(/home/dario/.config/bspwm/panels/dzen/net_up_01.xbm) ${upspeedf eth0}kb/s | \
 ^i(/home/dario/.config/bspwm/panels/dzen/net_down_01.xbm) ${downspeedf eth0}kb/s | \
 ^i(/home/dario/.config/bspwm/panels/dzen/spkr_01.xbm) ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | \
-${time %a %d} ${time %l:%M %p}    
+${time %a %d} ${time %H:%M}    
