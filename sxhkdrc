@@ -131,7 +131,7 @@ alt + Return
 
 # Show dmenu bar
 alt + space
-    dmenu_run -b -p '>' -nf '#aaaaaa' -nb '#040404' -sf '#ffffff' -sb '#000000'
+    dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000'
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -146,6 +146,6 @@ alt + shift + c
     chromium
 
 # Toggle visibility status bar
-ctrl + shift
+ctrl + space
     ~/.config/bspwm/panels/hide
 
