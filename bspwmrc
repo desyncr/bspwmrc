@@ -11,7 +11,7 @@ bspc config gapless_monocle         true
 bspc config auto_cancel             true
 bspc config auto_alternate          true
 bspc config adaptative_raise        true
-bspc config focus_follows_pointer   false
+bspc config focus_follows_pointer   true
 
 ~/.config/bspwm/init &
   ~/.config/bspwm/session
