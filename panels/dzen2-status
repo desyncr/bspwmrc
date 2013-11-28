@@ -1,0 +1,13 @@
+#!/bin/zsh
+font='lucidasans-8'
+panel='dzen2-bottom-status-bar'
+height=11
+width=1768
+y=800
+color='#FFFFFF'
+background='#000000'
+
+exec conky -d -c "$PWD/panels/conkyrc" | \
+    dzen2 -title-name $panel -fg $color -bg $background \
+        -ta right -w $width -h $height -x 0 -y $y -fn $font & transset .5 & sleep 1 ; xdotool mousemove 5 795; xdotool click 1 ; xdotool mousemove 700 400
+exit 0

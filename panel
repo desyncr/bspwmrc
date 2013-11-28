@@ -1,7 +1,6 @@
 #! /bin/sh
-PANEL_HEIGHT=18
-FONT_FAMILY='sans-serif'
-FONT_SIZE=10
+PANEL_HEIGHT=16
+FONT_FAMILY='lucidasans-8'
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_ID=${4:-panel}
 INFO_SOURCE=${3:-dzen2}
@@ -35,11 +34,13 @@ case "$flavor" in
     dzen2)
         . ./panels/colors
         cat "$PANEL_FIFO"\
-          | ./panels/$INFO_SOURCE -f "$FONT_FAMILY" -s "$FONT_SIZE"\
-          | dzen2 -y $position -h $PANEL_HEIGHT\
+          | ./panels/$INFO_SOURCE \
+          | dzen2 -fn "$FONT_FAMILY" -y $position -h $PANEL_HEIGHT\
               -ta l -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"\
             &
         ;;
+    dzen2-status)
+        ./panels/dzen2-status
 esac
 
 wait

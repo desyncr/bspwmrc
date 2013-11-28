@@ -1,0 +1,21 @@
+##############################################
+#  Settings
+##############################################
+background no
+out_to_console yes
+update_interval 2.0
+total_run_times 0
+use_spacer none
+
+# ^i(/home/dario/.config/conky/dzen/note.xbm) ${mpd_artist} - ${mpd_title} (${mpd_status}) | \
+
+TEXT
+^fg(\#666666)
+^i(/home/dario/.config/bspwm/panels/dzen/cpu.xbm) ${cpu cpu0}% | \
+^i(/home/dario/.config/bspwm/panels/dzen/mem.xbm) ${memperc}% | \
+^i(/home/dario/.config/bspwm/panels/dzen/bat_full_01.xbm) ${battery_percent BAT0}% | \
+^i(/home/dario/.config/bspwm/panels/dzen/wifi_01.xbm) ${addr eth0} | \
+^i(/home/dario/.config/bspwm/panels/dzen/net_up_01.xbm) ${upspeedf eth0}kb/s | \
+^i(/home/dario/.config/bspwm/panels/dzen/net_down_01.xbm) ${downspeedf eth0}kb/s | \
+^i(/home/dario/.config/bspwm/panels/dzen/spkr_01.xbm) ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | \
+${time %a %d} ${time %l:%M %p}    

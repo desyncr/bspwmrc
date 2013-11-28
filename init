@@ -11,12 +11,15 @@ gnome-settings-daemon &
 # gsettings set org.gnome.desktop.background picture-uri file:///home/user/Pictures/wallpaper.png
 #~/.fehbg &
 
-# launch dzen2 panel
-$bspdir/panel dzen2 &
-
 # gnome terminals
 #gnome-terminal &
 #  gnome-terminal -e ranger &
 
 [[ -e $compton/compton ]] \
-  && $compton/compton --config $compton/compton.conf
+  && $compton/compton --config $compton/compton.conf &
+
+# launch dzen2 panel
+$bspdir/panel dzen2 top dzen2 top-bar &
+  $bspdir/panel dzen2-status bottom dzen2 status-bar &
+  sleep 5 && $bspdir/panels/hide
+

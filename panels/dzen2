@@ -1,7 +1,7 @@
 #! /bin/sh
 #
 # Example panel for dzen2
-font_family='sans-serif'
+font_family='lucidasans-8'
 font_size=5
 
 . ./panels/colors
@@ -103,7 +103,7 @@ while read -r line ; do
     esac
     set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^[a-z]\+([^)]*)//g')
     left_width=$1
-    center_width=500
+    center_width=460
     right_width=$3
     left_indent=0
     right_indent=$((screen_width - right_width))

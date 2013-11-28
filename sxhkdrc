@@ -141,6 +141,11 @@ alt + Escape
 alt + Print
     scrot -d3 -e "mv \$f ~/Pictures/"
 
-# Launch chromium
-ctrl + shift + c
+# Launch chroium
+alt + shift + c
     chromium
+
+# Toggle visibility status bar
+ctrl + shift
+    ~/.config/bspwm/panels/hide
+
