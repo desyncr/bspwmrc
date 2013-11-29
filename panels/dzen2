@@ -10,6 +10,7 @@ adaptive_centering=0
 screen_width=1768
 center_width=460
 center_indent=$(( (screen_width - center_width) / 2 ))
+right_indent=$(( (screen_width - 465) ))
 
 NORMIFS=$IFS
 FIELDIFS=':'
@@ -92,5 +93,16 @@ while read -r line ; do
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "$wm_infos^pa($center_indent)$(date "+%a %H:%M")"
+    mail_dir=~/.mail/private/INBOX/new/
+    change=$(stat -c %Y $mail_dir)
+    if [ "0$last_change" -eq 0 ]; then
+      last_change=$change
+    fi
+    interval=300
+    recent=" "
+    if [ $(( $last_change - $change )) -lt $interval ]; then
+      recent="*"
+    fi
+    mail=$(ls -l $mail_dir | wc -l)
+    printf "%s\n" "  $wm_infos^pa($center_indent)$(date "+%a %H:%M")^pa($right_indent)$recent $mail ^i(/home/dario/.config/bspwm/panels/dzen/mail.xbm)"
 done

@@ -1,24 +1,27 @@
 #! /bin/sh
-PANEL_HEIGHT=14
+# panel panel-id position info sleep
+FLAVOR=${1:-dzen2}
+PANEL_ID=${2:-panel}
+POSITION=${3:-top}
+INFO_SOURCE=${4:-dzen2}
+SLEEP_INTERVAL=${5:-60}
+
+PANEL_HEIGHT=8
 FONT_FAMILY='lucidasans-8'
 PANEL_FIFO=/tmp/panel-fifo
-PANEL_ID=${4:-panel}
-INFO_SOURCE=${3:-dzen2}
+
 if [ $(pgrep -cx "$PANEL_ID") -gt 1 ] ; then
     printf "%s\n" "The panel is already running." >&2
     exit 1
 fi
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-flavor=${1:-bar}
-sleep_interval=${5:-60}
-position=${2:-top}
-case "$position" in
+case "$POSITION" in
   top)
-    position=0
+    POSITION=0
     ;;
   bottom)
-    position=750 # screen_height - PANEL_HEIGHT
+    POSITION=750 # screen_height - PANEL_HEIGHT
     ;;
 esac
 
@@ -28,16 +31,16 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 bspc control --subscribe > "$PANEL_FIFO" &
 
-case "$flavor" in
+case "$FLAVOR" in
     bar)
         cat "$PANEL_FIFO" | ./panels/bar  &
         ;;
     dzen2)
-        ./panels/update "$PANEL_FIFO" $sleep_interval &
+        ./panels/update "$PANEL_FIFO" $SLEEP_INTERVAL &
         . ./panels/colors
         cat "$PANEL_FIFO" \
           | ./panels/$INFO_SOURCE \
-          | dzen2 -fn "$FONT_FAMILY" -y $position -h $PANEL_HEIGHT\
+          | dzen2 -fn "$FONT_FAMILY" -y $POSITION -h $PANEL_HEIGHT\
               -ta l -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"\
             &
         ;;

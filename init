@@ -19,7 +19,7 @@ gnome-settings-daemon &
   && $compton/compton --config $compton/compton.conf &
 
 # launch dzen2 panel
-$bspdir/panel dzen2 top dzen2 top-bar &
-  $bspdir/panel dzen2-status bottom dzen2 status-bar &
+$bspdir/panel dzen2 top-bar &
+  $bspdir/panel dzen2-status status-bar bottom &
   sleep 5 && $bspdir/panels/hide
 
