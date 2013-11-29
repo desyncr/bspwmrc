@@ -95,12 +95,9 @@ while read -r line ; do
     esac
     mail_dir=~/.mail/private/INBOX/new/
     change=$(stat -c %Y $mail_dir)
-    if [ "0$last_change" -eq 0 ]; then
-      last_change=$change
-    fi
     interval=300
     recent=" "
-    if [ $(( $last_change - $change )) -lt $interval ]; then
+    if [ $(( $(date +%s) - $change )) -lt $interval ]; then
       recent="*"
     fi
     mail=$(ls -l $mail_dir | wc -l)
