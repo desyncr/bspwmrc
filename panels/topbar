@@ -7,7 +7,7 @@ background='#000000'
 alignment="left"
 bar_height=14
 
-sleep=1
+sleep=60s
 panel_fifo=/tmp/panel-fifo
 read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
 y=0
@@ -18,7 +18,7 @@ mkfifo $panel_fifo
 
 root=$(dirname $(readlink -f $0))
 
-#$root/update $panel_fifo $sleep &
+$root/update $panel_fifo $sleep &
 
 bspc config top_padding $bar_height
 bspc control --subscribe > $panel_fifo &

@@ -3,6 +3,6 @@ PANEL_FIFO=$1
 SLEEP_INTERVAL=$2
 
 while true; do
-    touch $PANEL_FIFO;
+    echo>$PANEL_FIFO;
     sleep $SLEEP_INTERVAL;
 done;
