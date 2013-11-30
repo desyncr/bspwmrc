@@ -1,0 +1,32 @@
+#!/bin/bash
+readarray -t PROPS < <(xwinfo -its $1)
+ 
+INST=${PROPS[0]}
+TYPE=${PROPS[1]}
+STATE=(${PROPS[2]})
+ 
+RULE=()
+ 
+# Sane defaults
+case "$TYPE" in
+    dock|desktop|notification)  RULE+=("manage=off")    ;;
+    toolbar|utility)            RULE+=("focus=off")     ;;
+    desktop)                    RULE+=("lower=on")      ;;
+esac
+ 
+for s in $STATE; do
+    case $s in
+        sticky)                 RULE+=("sticky=on")     ;;
+        fullscreen)             RULE+=("fullscreen=on") ;;
+    esac
+done
+ 
+# Custom rules
+case "$INST" in
+    vlc|transmission-gtk)
+        RULE+=("floating=on") ;;
+    BSPWM_FRAME|bspwm_frame)
+        RULE+=("frame=on") ;;
+esac
+ 
+echo "${RULE[*]}"

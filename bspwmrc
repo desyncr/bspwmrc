@@ -1,5 +1,5 @@
 #! /bin/sh
-bspc monitor -d i ii iii iv v vi vii viii ix x
+bspc monitor -d • • • • • • • • • •
 
 bspc config border_width        1
 bspc config window_gap          15
@@ -12,6 +12,8 @@ bspc config auto_cancel             true
 bspc config auto_alternate          true
 bspc config adaptative_raise        true
 bspc config focus_follows_pointer   true
+
+bspc config rule_command "/home/dario/.config/bspwm/rules %d"
 
 ~/.config/bspwm/init &
   ~/.config/bspwm/session
