@@ -1,0 +1,88 @@
+#! /bin/bash
+mail_dir=$HOME/.mail/private/INBOX/new/
+root=$(dirname $(readlink -f $0))
+read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
+center_indent=$(( ($screen_width / 2) - 30 ))
+right_indent=$(( $screen_width - 60 ))
+
+. $root/colors
+
+NORMIFS=$IFS
+FIELDIFS=':'
+PADDING=' '
+
+shift $((OPTIND - 1))
+while read -r line ; do
+    case $line in
+        W*)
+            # bspwm internal state
+            wm_infos="$PADDING"
+            IFS=$FIELDIFS
+            set -- ${line#?}
+            while [ $# -gt 0 ] ; do
+                item=$1
+                case $item in
+                    [OoFfUu]*)
+                        # desktops
+                        name=${item#?}
+                        case $item in
+                            O*)
+                                # focused occupied desktop
+                                FG=$COLOR_FOCUSED_OCCUPIED_FG
+                                BG=$COLOR_FOCUSED_OCCUPIED_BG
+                                ;;
+                            F*)
+                                # focused free desktop
+                                FG=$COLOR_FOCUSED_FREE_FG
+                                BG=$COLOR_FOCUSED_FREE_BG
+                                ;;
+                            U*)
+                                # focused urgent desktop
+                                FG=$COLOR_FOCUSED_URGENT_FG
+                                BG=$COLOR_FOCUSED_URGENT_BG
+                                ;;
+                            o*)
+                                # occupied desktop
+                                FG=$COLOR_OCUPPIED_FG
+                                BG=$COLOR_OCUPPIED_BG
+                                ;;
+                            f*)
+                                # free desktop
+                                FG=$COLOR_FREE_FG
+                                BG=$COLOR_FREE_BG
+                                ;;
+                            u*)
+                                # urgent desktop
+                                FG=$COLOR_URGENT_FG
+                                BG=$COLOR_URGENT_BG
+                                ;;
+                        esac
+                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})${PADDING}${name}${PADDING}"
+                        ;;
+                    L*)
+                        # layout
+                        layout=$(printf "%s" "${item#?}" | sed 's/^\(.\).*/\U\1/')
+                        wm_infos="${wm_infos}^fg()^bg()${PADDING}${PADDING}^fg($COLOR_LAYOUT_FG)^bg($COLOR_LAYOUT_BG)"
+                        ;;
+                esac
+                shift
+            done
+            IFS=$NORMIFS
+            ;;
+    esac
+
+    if [ -e $mail_dir ]; then
+        change=$(stat -c %Y $mail_dir)
+        interval=300
+        recent=" "
+        if [ $(( $(date +%s) - $change )) -lt $interval ]; then
+            recent="*"
+        fi
+        mail=$(ls -l $mail_dir | wc -l)
+    else
+        mail=""
+        recent=""
+    fi
+
+    printf "%s\n" "  $wm_infos^pa($center_indent)$(date "+%a %H:%M")^pa($right_indent)$recent $mail ^i($HOME/.config/bspwm/icons/mail.xbm)"
+done

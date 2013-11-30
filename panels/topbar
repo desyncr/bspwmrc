@@ -1,0 +1,31 @@
+#!/bin/zsh
+font='lucidasans-8'
+panel='dzen2-top-bar'
+
+color='#FFFFFF'
+background='#000000'
+alignment="left"
+bar_height=14
+
+sleep=1
+panel_fifo=/tmp/panel-fifo
+read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
+y=0
+x=0
+
+[ -e $panel_fifo ] && rm $panel_fifo
+mkfifo $panel_fifo
+
+root=$(dirname $(readlink -f $0))
+
+#$root/update $panel_fifo $sleep &
+
+bspc config top_padding $bar_height
+bspc control --subscribe > $panel_fifo &
+
+cat $panel_fifo | \
+    $root/topbarrc | \
+    dzen2 -title-name $panel -fg $color -bg $background \
+        -ta $alignment -w $screen_width -h $bar_height -x $x -y $y -fn $font \
+        &
+wait

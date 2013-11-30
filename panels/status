@@ -1,0 +1,26 @@
+#!/bin/zsh
+font='lucidasans-8'
+panel='dzen2-bottom-status-bar'
+conky_config="$HOME/.config/bspwm/panels/conkyrc"
+
+color='#FFFFFF'
+background='#000000'
+alignment="right"
+alpha=.5
+
+read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
+bar_height=12
+
+y=$(( $screen_height - $bar_height ))
+x=0
+
+exec conky -d -c $conky_config | \
+     dzen2 -title-name $panel -fg $color -bg $background \
+        -ta $alignment -w $screen_width -h $bar_height -x $x -y $y -fn $font & \
+        transset $alpha & sleep 1 ;
+
+        # apply transparency
+        xdotool mousemove 5 $(( $screen_height - 5 )); \
+            xdotool click 1; \
+            xdotool mousemove $(( $screen_width / 2 )) $(( $screen_height / 2 ))
+wait

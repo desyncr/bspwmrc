@@ -1,51 +1,28 @@
 #! /bin/sh
 # panel panel-id position info sleep
-FLAVOR=${1:-dzen2}
-PANEL_ID=${2:-panel}
-POSITION=${3:-top}
-INFO_SOURCE=${4:-dzen2}
-SLEEP_INTERVAL=${5:-60}
+while getopts f:i:s: opt; do
+  case ${opt} in
+    f)
+      FLAVOR=${OPTARG}
+      ;;
+    a)
+      PANEL_ID=${OPTARG}
+      ;;
+  esac
+done
 
-PANEL_HEIGHT=8
-FONT_FAMILY='lucidasans-8'
-PANEL_FIFO=/tmp/panel-fifo
-
+ROOT=$(dirname $(readlink -f $0))
 if [ $(pgrep -cx "$PANEL_ID") -gt 1 ] ; then
     printf "%s\n" "The panel is already running." >&2
     exit 1
 fi
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
-
-case "$POSITION" in
-  top)
-    POSITION=0
-    ;;
-  bottom)
-    POSITION=750 # screen_height - PANEL_HEIGHT
-    ;;
-esac
-
-[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-mkfifo "$PANEL_FIFO"
-
-bspc config top_padding $PANEL_HEIGHT
-bspc control --subscribe > "$PANEL_FIFO" &
-
-case "$FLAVOR" in
-    bar)
-        cat "$PANEL_FIFO" | ./panels/bar  &
+case $FLAVOR in
+    topbar)
+        nohup $ROOT/panels/topbar &>/dev/null
         ;;
-    dzen2)
-        ./panels/update "$PANEL_FIFO" $SLEEP_INTERVAL &
-        . ./panels/colors
-        cat "$PANEL_FIFO" \
-          | ./panels/$INFO_SOURCE \
-          | dzen2 -fn "$FONT_FAMILY" -y $POSITION -h $PANEL_HEIGHT\
-              -ta l -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"\
-            &
-        ;;
-    dzen2-status)
-        ./panels/dzen2-status &
+    status)
+        nohup $ROOT/panels/status &>/dev/null
 esac
 
 wait
