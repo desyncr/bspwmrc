@@ -79,6 +79,14 @@ while read -r line ; do
             recent="*"
         fi
         mail=$(ls -l $mail_dir | wc -l)
+        if [ "0$last_mail" -eq 0 ]; then
+            last_mail=$mail
+            last_mail=11
+        fi
+        if [ $mail -gt $last_mail ]; then
+            twmnc -t "Email" -c "New mail arrived" -s 30 -d 5 --pos top_right
+            last_mail=$mail
+        fi
     else
         mail=""
         recent=""
