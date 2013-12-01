@@ -130,7 +130,7 @@ alt + Return
     gnome-terminal
 
 # Show dmenu bar
-alt + space
+ctrl + space
     dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000'
 
 # make sxhkd reload its configuration files:
@@ -146,6 +146,6 @@ alt + shift + c
     chromium
 
 # Toggle visibility status bar
-ctrl + space
+alt + space
     ~/.config/bspwm/panels/hide
 
