@@ -6,6 +6,7 @@ color='#FFFFFF'
 background='#000000'
 alignment="left"
 bar_height=14
+bar_padding=6
 
 sleep=60s
 panel_fifo=/tmp/panel-fifo
@@ -20,7 +21,7 @@ root=$(dirname $(readlink -f $0))
 
 $root/update $panel_fifo $sleep &
 
-bspc config top_padding $bar_height
+bspc config top_padding $bar_padding
 bspc control --subscribe > $panel_fifo &
 
 cat $panel_fifo | \
@@ -29,4 +30,3 @@ cat $panel_fifo | \
         -ta $alignment -w $screen_width -h $bar_height -x $x -y $y -fn $font \
         &
 wait
-bspc config top_padding 0
