@@ -77,6 +77,11 @@ My bspwm settings and custom configurations.
 
         compton=~/.compton/
 
+* Other dependencies
+
+    * Topbar depends on dzen and twmnc for notifications.
+
+    * Statusbar depends on conky and dzen to display info
 
 ## Contact and Feedback
 
