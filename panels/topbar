@@ -29,3 +29,4 @@ cat $panel_fifo | \
         -ta $alignment -w $screen_width -h $bar_height -x $x -y $y -fn $font \
         &
 wait
+bspc config top_padding 0
