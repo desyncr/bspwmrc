@@ -10,6 +10,7 @@ gnome-settings-daemon &
 # set background
 # gsettings set org.gnome.desktop.background picture-uri file:///home/user/Pictures/wallpaper.png
 #~/.fehbg &
+feh --bg-tile $bspdir/wallpaper.jpg
 
 # gnome terminals
 #gnome-terminal &
