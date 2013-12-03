@@ -1,7 +1,7 @@
 #!/bin/bash
 line=$@
 case $line in
-    C*)
+    T*)
         set -- "${line#?}"
         echo "$1"
     ;;

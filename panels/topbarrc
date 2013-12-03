@@ -6,13 +6,13 @@ right_indent=$(( $screen_width - 60 ))
 
 shift $((OPTIND - 1))
 while read -r line ; do
-    applets='desktop mail clock'
+    applets='title desktop mail clock'
     for applet in $applets; do
         res=$(./panels/applets/$applet $line)
         if [[ $? -eq 0 ]]; then
             eval "$applet"='$res'
         fi
     done
-    printf "%s\n" "   $desktop^pa($center_indent)$clock^pa($right_indent)$mail ^i($HOME/.config/bspwm/icons/mail.xbm)"
+    printf "%s\n" "   $desktop $title ^pa($center_indent)$clock^pa($right_indent)$mail ^i($HOME/.config/bspwm/icons/mail.xbm)"
 done
 

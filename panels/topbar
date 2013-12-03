@@ -19,7 +19,8 @@ mkfifo $panel_fifo
 
 root=$(dirname $(readlink -f $0))
 
-$root/../misc/update $panel_fifo $sleep &
+xtitle -sf 'T%s' > $panel_fifo &
+clock -sf 'C%a %H:%M' > $panel_fifo &
 
 bspc config top_padding $bar_padding
 bspc control --subscribe > $panel_fifo &
