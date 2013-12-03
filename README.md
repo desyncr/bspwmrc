@@ -79,7 +79,11 @@ My bspwm settings and custom configurations.
 
 * Other dependencies
 
-    * Topbar depends on dzen and twmnc for notifications.
+    * Topbar depends on dzen and twmnc for notifications. Also xtitle and clock.
+        - dzen http://github.com/robm/dzen
+        - twmn http://github.com/sboli/twmn
+        - xtitle http://github.com/baskerville/xtitle
+        - clock http://github.com/baskerville/sutils
 
     * Statusbar depends on conky and dzen to display info
 
