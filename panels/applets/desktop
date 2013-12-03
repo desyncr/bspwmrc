@@ -67,7 +67,12 @@ case $line in
             esac
             shift
         done
+        wm_infos="${wm_infos}^fg()^bg()"
         IFS=$NORMIFS
         ;;
+
+    *)
+        exit 1
+        ;;
 esac
-printf "%s^fg()^bg() " $wm_infos
+printf "%s " $wm_infos
