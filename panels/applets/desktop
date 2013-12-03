@@ -1,0 +1,73 @@
+#!/bin/bash
+. $root/applets/colors
+
+NORMIFS=$IFS
+FIELDIFS=':'
+PADDING=' '
+line=$@
+case $line in
+    W*)
+        # bspwm internal state
+        wm_infos="$PADDING"
+        IFS=$FIELDIFS
+        set -- ${line#?}
+        while [ $# -gt 0 ] ; do
+            item=$1
+            case $item in
+                [OoFfUu]*)
+                    # desktops
+                    name=${item#?}
+                    case $item in
+                        O*)
+                            # focused occupied desktop
+                            FG=$COLOR_FOCUSED_OCCUPIED_FG
+                            BG=$COLOR_FOCUSED_OCCUPIED_BG
+                            ;;
+                        F*)
+                            # focused free desktop
+                            FG=$COLOR_FOCUSED_FREE_FG
+                            BG=$COLOR_FOCUSED_FREE_BG
+                            ;;
+                        U*)
+                            # focused urgent desktop
+                            FG=$COLOR_FOCUSED_URGENT_FG
+                            BG=$COLOR_FOCUSED_URGENT_BG
+                            ;;
+                        o*)
+                            # occupied desktop
+                            FG=$COLOR_OCUPPIED_FG
+                            BG=$COLOR_OCUPPIED_BG
+                            ;;
+                        f*)
+                            # free desktop
+                            FG=$COLOR_FREE_FG
+                            BG=$COLOR_FREE_BG
+                            ;;
+                        u*)
+                            # urgent desktop
+                            FG=$COLOR_URGENT_FG
+                            BG=$COLOR_URGENT_BG
+                            ;;
+                    esac
+                    case $item in
+                        [OFU]*)
+                            name=$FOCUSED_DESKTOP_ICON
+                            ;;
+                        [ofu]*)
+                            name=$OTHER_DESKTOP_ICON
+                            ;;
+                    esac
+                    wm_infos="${wm_infos}^fg(${FG})^bg(${BG})${PADDING}${name}${PADDING}"
+                    ;;
+                L*)
+                    # layout
+                    layout=$(printf "%s" "${item#?}" | sed 's/^\(.\).*/\U\1/')
+                    wm_infos="${wm_infos}^fg()^bg()${PADDING}${PADDING}^fg($COLOR_LAYOUT_FG)^bg($COLOR_LAYOUT_BG)"
+                    ;;
+            esac
+            shift
+        done
+        IFS=$NORMIFS
+        ;;
+esac
+printf "%s^fg()^bg() " $wm_infos

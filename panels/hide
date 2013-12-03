@@ -1,4 +1,0 @@
-#!/bin/zsh
-panel_name='dzen2-bottom-status-bar'
-xdotool search --onlyvisible --name "$panel_name" windowunmap %@ || xdotool search --name "$panel_name" windowmap %@
-

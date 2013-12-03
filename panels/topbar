@@ -19,7 +19,7 @@ mkfifo $panel_fifo
 
 root=$(dirname $(readlink -f $0))
 
-$root/update $panel_fifo $sleep &
+$root/../misc/update $panel_fifo $sleep &
 
 bspc config top_padding $bar_padding
 bspc control --subscribe > $panel_fifo &

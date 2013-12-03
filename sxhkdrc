@@ -142,11 +142,11 @@ alt + Escape
 alt + Print
     scrot -d3 -e "mv \$f ~/Pictures/"
 
-# Launch chroium
-alt + shift + c
-    chromium
+# Launch vimprobable
+alt + shift + v
+    vimprobable
 
 # Toggle visibility status bar
 alt + space
-    ~/.config/bspwm/panels/hide
+    ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
