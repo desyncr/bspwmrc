@@ -69,8 +69,12 @@ alt + bracket{left,right}
     bspc desktop -f {prev,next}
 
 # Move through desktop
-ctrl + alt + {_,shift +}Tab
-    bspc desktop -f {next,prev}
+ctrl + alt + Tab
+    bspc monitor -f DVI-I-0 ; bspc desktop -f next ; bspc monitor -f VGA-0 ; bspc desktop -f next
+
+ctrl + alt + shift + Tab
+    bspc monitor -f DVI-I-0 ; bspc desktop -f prev; bspc monitor -f VGA-0 ; bspc desktop -f prev
+
 
 # Create a new window on the given spot
 alt + ctrl + {h,j,k,l}

@@ -1,5 +1,6 @@
 #! /bin/sh
-bspc monitor -d • • • • • • • • • •
+bspc monitor ^1 -d • • • • •
+bspc monitor ^2 -d • • • • •
 
 bspc config border_width        1
 bspc config window_gap          15

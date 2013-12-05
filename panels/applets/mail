@@ -13,7 +13,7 @@ if [ -e $mail_dir ]; then
         last_mail=11
     fi
     if [ $mail -gt $last_mail ]; then
-        twmnc -t "Email" -c "New mail arrived" -s 30 -d 5 --pos top_right
+        #twmnc -t "Email" -c "New mail arrived" -s 30 -d 5 --pos top_right
         last_mail=$mail
     fi
 else
