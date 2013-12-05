@@ -130,6 +130,9 @@ alt + shift + equal
 alt + Return
     gnome-terminal
 
+alt + shift + {comma,period}
+    ncmpcpp {prev,next}
+
 # Show dmenu bar
 ctrl + space
     dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000'
