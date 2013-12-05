@@ -3,7 +3,11 @@ line=$@
 case $line in
     T*)
         set -- "${line#?}"
-        echo "$1"
+        if [[ ${#1} -gt 50 ]]; then
+            echo "${1:0:50}..."
+        else
+            echo $1
+        fi
     ;;
     *)
         exit 1
