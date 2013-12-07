@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 font='lucidasans-8'
 panel='dzen2-top-bar'
 
@@ -8,22 +8,23 @@ alignment="left"
 bar_height=14
 bar_padding=6
 
+root=$(dirname $(readlink -f $0))
 sleep=60s
 panel_fifo=/tmp/panel-fifo
 read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
 y=0
 x=0
 
+bspc config top_padding $bar_padding
+
 [ -e $panel_fifo ] && rm $panel_fifo
 mkfifo $panel_fifo
 
-root=$(dirname $(readlink -f $0))
+trap 'jobs -p | xargs kill' EXIT
 
-xtitle -sf 'T%s' > $panel_fifo &
-clock -sf 'C%a %H:%M' > $panel_fifo &
-
-bspc config top_padding $bar_padding
 bspc control --subscribe > $panel_fifo &
+    xtitle -sf 'T%s' > $panel_fifo &
+        clock -sf 'C%a %H:%M' > $panel_fifo &
 
 cat $panel_fifo | \
     $root/topbarrc | \

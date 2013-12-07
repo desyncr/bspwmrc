@@ -14,13 +14,14 @@ bar_height=12
 y=$(( $screen_height - $bar_height ))
 x=0
 
-exec conky -d -c $conky_config | \
-     dzen2 -title-name $panel -fg $color -bg $background \
+trap 'jobs -p | xargs kill' EXIT
+conky -d -c $conky_config | \
+    dzen2 -title-name $panel -fg $color -bg $background \
         -ta $alignment -w $screen_width -h $bar_height -x $x -y $y -fn $font & \
-        transset $alpha & sleep 1 ;
+        transset $alpha & sleep 1 &
 
-        # apply transparency
-        xdotool mousemove 5 $(( $screen_height - 5 )); \
-            xdotool click 1; \
-            xdotool mousemove $(( $screen_width / 2 )) $(( $screen_height / 2 ))
+# apply transparency
+xdotool mousemove 5 $(( $screen_height - 5 )); \
+    xdotool click 1; \
+        xdotool mousemove $(( $screen_width / 2 )) $(( $screen_height / 2 ))
 wait

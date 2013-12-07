@@ -1,6 +1,9 @@
 #!/bin/bash
-# init script
+trap 'jobs -p | xargs kill' EXIT
+
 compton=~/.compton/
+dunst=/usr/local/bin/
+
 bspdir=$(dirname $(readlink -f $0))
 cd $bspdir
 
@@ -9,19 +12,22 @@ gnome-settings-daemon &
 
 # set background
 # gsettings set org.gnome.desktop.background picture-uri file:///home/user/Pictures/wallpaper.png
-#~/.fehbg &
 feh --bg-tile $bspdir/wallpaper.jpg &
 
-# gnome terminals
-#gnome-terminal &
 #  gnome-terminal -e ranger &
+gnome-terminal &
+
+[[ -e $dunst/dunst ]] \
+    && $dunst/dunst -config $bspdir/panels/dunstrc &
 
 # launch compton compositor
-[[ -e $compton/compton ]] \
-  && $compton/compton --config $compton/compton.conf &
+#[[ -e $compton/compton ]] \
+#  && $compton/compton --config $bspdir/compton.conf &
 
 # launch dzen2 panels
-nohup $bspdir/panels/topbar &
+$bspdir/panels/topbar &
     $bspdir/panels/status &
-        sleep 5 && $bspdir/misc/hide
 
+sleep 5 && $bspdir/misc/hide dzen2-bottom-status-bar
+
+wait
