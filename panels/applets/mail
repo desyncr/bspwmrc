@@ -1,21 +1,14 @@
 #!/bin/zsh
-mail_dir=$HOME/.mail/private/INBOX/new/
+mail_dir=$HOME/.mail/private/INBOX/new
+interval=300
 if [ -e $mail_dir ]; then
     change=$(stat -c %Y $mail_dir)
-    interval=300
     recent=" "
     if [ $(( $(date +%s) - $change )) -lt $interval ]; then
         recent="*"
     fi
-    mail=$(ls -l $mail_dir | wc -l)
-    if [ "0$last_mail" -eq 0 ]; then
-        last_mail=$mail
-        last_mail=11
-    fi
-    if [ $mail -gt $last_mail ]; then
-        twmnc -t "Email" -c "New mail arrived" -s 30 -d 5 --pos top_right
-        last_mail=$mail
-    fi
+
+    mail=$(( $(ls -l $mail_dir | wc -l) - 1 ))
 else
     mail=""
     recent=""
