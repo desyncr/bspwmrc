@@ -134,9 +134,6 @@ ctrl + Escape
 ctrl + Print
     scrot -d3 -e "mv \$f ~/Pictures/"
 
-# Launch vimprobable
-ctrl + shift + v
-    vimprobable
 
 # Toggle visibility status bar
 ctrl + shift + space
@@ -148,3 +145,24 @@ ctrl + shift + h
 ctrl +  h
     ~/.config/bspwm/misc/toggle hide
 
+# Launchers
+super + s
+    storm
+
+super + shift + s
+    subl
+
+super + c
+    chromium
+
+super + t
+    gnome-terminal -e 'htop'
+
+super + n
+    gnome-terminal -e 'ncmpcpp'
+
+super + v
+    vimprobable
+
+super + shift + v
+    vim
