@@ -8,6 +8,7 @@ use_spacer none
 
 TEXT
 ^fg(\#666666)
+${exec $HOME/.config/bspwm/misc/list} \
 ^i($HOME/.config/bspwm/icons/cpu.xbm) ${cpu cpu0}% | \
 ^i($HOME/.config/bspwm/icons/mem.xbm) ${memperc}% | \
 ^i($HOME/.config/bspwm/icons/bat_full_01.xbm) ${battery_percent BAT0}% | \

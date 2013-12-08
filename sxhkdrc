@@ -142,3 +142,9 @@ ctrl + shift + v
 ctrl + shift + space
     ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
+ctrl + shift + h
+    ~/.config/bspwm/misc/toggle show
+
+ctrl +  h
+    ~/.config/bspwm/misc/toggle hide
+

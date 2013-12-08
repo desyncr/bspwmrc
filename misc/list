@@ -1,0 +1,3 @@
+#!/bin/bash
+list=$HOME/.config/bspwm/window_list
+for l in $(cat $list); do echo -n $(xtitle $l) ' | '; done
