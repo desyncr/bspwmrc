@@ -135,7 +135,7 @@ ctrl + Print
     scrot -d3 -e "mv \$f ~/Pictures/"
 
 # Launch vimprobable
-ctrl + v
+ctrl + shift + v
     vimprobable
 
 # Toggle visibility status bar
