@@ -1,7 +1,8 @@
 #!/bin/zsh
 action=$1
 wid=$(xdotool getactivewindow)
-list=$HOME/.config/bspwm/window_list
+did=$(xdotool get_desktop)
+list=$HOME/.config/bspwm/misc/window_list.$did
 
 push() {
     echo $1>>$list

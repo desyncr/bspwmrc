@@ -1,3 +1,17 @@
 #!/bin/bash
-list=$HOME/.config/bspwm/window_list
-for l in $(cat $list); do echo -n $(xtitle $l) ' | '; done
+case $1 in
+    [0-9])
+        desktop=$1
+    ;;
+    'all')
+        desktop=$(seq 0 9)
+    ;;
+    *)
+        desktop=$(xdotool get_desktop)
+    ;;
+esac
+
+for d in $desktop; do
+    list=$HOME/.config/bspwm/misc/window_list.$d
+    [[ -e $list ]] && for l in $(cat $list); do echo -n $(xtitle $l) ' | '; done
+done

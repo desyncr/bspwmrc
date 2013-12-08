@@ -1,6 +1,6 @@
 background no
 out_to_console yes
-update_interval 3
+update_interval 1
 total_run_times 0
 use_spacer none
 
