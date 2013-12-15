@@ -139,10 +139,10 @@ ctrl + Print
 ctrl + shift + space
     ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
-ctrl + shift + h
+ctrl + shift + u
     ~/.config/bspwm/misc/toggle show
 
-ctrl +  h
+ctrl + shift + h
     ~/.config/bspwm/misc/toggle hide
 
 # Launchers

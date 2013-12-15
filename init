@@ -7,6 +7,8 @@ dunst=/usr/local/bin/
 bspdir=$(dirname $(readlink -f $0))
 cd $bspdir
 
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+
 # gnome settings daemon (for fonts and gtk styling)
 gnome-settings-daemon &
 
