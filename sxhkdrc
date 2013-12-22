@@ -10,8 +10,8 @@ alt + w
     bspc window -c
 
 # Presets window distribution
-alt + b
-    bspc desktop -B
+#alt + b
+#    bspc desktop -B
 
 # s - float / f - fullscreen
 alt + {s,f}
