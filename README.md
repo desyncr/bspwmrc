@@ -95,7 +95,10 @@ My bspwm settings and custom configurations.
         * `Ctrl + Shift + Enter`: Floating gnome-terminal
         * `Ctrl + Space`: dmenu (Escape to hide it)
         * `Ctrl + Shift + Space`: show status bar
-        * `Ctrl + v`: Vimperator (web browser)
+        * `Ctrl + v`: Vimprobable (web browser)
+        * `Ctrl + s`: PhpStorm (PHP IDE)
+        * `Ctrl + shift + s`: SublimeText (code editor)
+        * `Ctrl + c`: Chromium (web browser)
 
     * Moving windows
 
@@ -108,7 +111,10 @@ My bspwm settings and custom configurations.
         * `Alt + {1,2,3,4,...}`: Go to the {n} desktop
         * `Alt + backtick`: Go to the next desktop
         * `Alt + shift + backtick`: Go to the previous desktop
-
+        
+    * Hiding windows
+        * `Ctrl + Shift + h`: Hide currently focused window
+        * `Ctrl + Shift + u`: Unhide last hidden window (it's a stack)
 
 ## Feedback
 
