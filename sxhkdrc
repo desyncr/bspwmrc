@@ -159,7 +159,7 @@ super + t
     gnome-terminal -e 'htop'
 
 super + n
-    gnome-terminal -e 'ncmpcpp'
+    nautilus
 
 super + v
     vimprobable
