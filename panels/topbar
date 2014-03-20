@@ -24,7 +24,7 @@ trap 'jobs -p | xargs kill' EXIT
 
 bspc control --subscribe > $panel_fifo &
     xtitle -sf 'T%s' > $panel_fifo &
-        clock -sf 'C%a %H:%M' > $panel_fifo &
+        clock -sf 'C%a %d %H:%M' > $panel_fifo &
 
 cat $panel_fifo | \
     $root/topbarrc | \
