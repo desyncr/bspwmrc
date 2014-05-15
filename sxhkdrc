@@ -155,6 +155,9 @@ super + shift + s
 super + c
     chromium
 
+super + f
+    firefox
+
 super + t
     gnome-terminal -e 'htop'
 
