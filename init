@@ -17,14 +17,15 @@ gnome-settings-daemon &
 feh --bg-tile $bspdir/wallpaper.jpg &
 
 #  gnome-terminal -e ranger &
-gnome-terminal &
+cd $HOME &&
+    gnome-terminal -e ranger &
 
 [[ -e $dunst/dunst ]] \
     && $dunst/dunst -config $bspdir/panels/dunstrc &
 
 # launch compton compositor
-#[[ -e $compton/compton ]] \
-#  && $compton/compton --config $bspdir/compton.conf &
+[[ -e $compton/compton ]] \
+  && $compton/compton --config $bspdir/compton.conf &
 
 # launch dzen2 panels
 $bspdir/panels/topbar &
