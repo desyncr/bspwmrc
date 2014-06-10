@@ -1,0 +1,64 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+use Data::Dumper;
+
+my $NO_PREVIOUS_ALERT = 0;
+my $BATTERY_STATUS_CHARGED = 0;
+my $BATTERY_STATUS_DISCHARGING = 1;
+
+my $alert_delay = 300;
+my $last_alert = $NO_PREVIOUS_ALERT;
+my $sleep = 60;
+
+sub notify {
+    my ($title, $message) = @_;
+    `dunstify -t 180 "$title" "$message"`;
+}
+
+sub battery_discharging {
+    notify "battery discharging!", "Check out the battery cable";
+}
+
+sub battery_still_discharging {
+    notify "battery still discharging!", "Check out the battery cable";
+}
+
+sub check_battery_status {
+    my $status = $BATTERY_STATUS_CHARGED;
+    my $data = `acpi`;
+    if ($data =~ /Discharging/) {
+        $status = $BATTERY_STATUS_DISCHARGING;
+    }
+
+    return $status;
+}
+
+# waits $alert_delay seconds before alerting again
+sub past_alert_delay {
+    return $last_alert != $NO_PREVIOUS_ALERT && time - $last_alert > $alert_delay;
+}
+
+sub raise_alert {
+    if ($last_alert == $NO_PREVIOUS_ALERT) {
+        battery_discharging;
+    }
+    if (past_alert_delay) {
+        battery_still_discharging;
+    }
+    $last_alert=time;
+}
+
+sub clear_alert_status {
+    $last_alert=$NO_PREVIOUS_ALERT;
+}
+
+while (1) {
+    if (check_battery_status == $BATTERY_STATUS_DISCHARGING) {
+        raise_alert;
+    } else {
+        clear_alert_status;
+    }
+    sleep $sleep;
+}
+

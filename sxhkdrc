@@ -13,9 +13,15 @@ alt + w
 #alt + b
 #    bspc desktop -B
 
-# s - float / f - fullscreen
-alt + {s,f}
-    bspc window -t {floating,fullscreen}
+# s - float
+alt + s
+    bspc window -t floating
+
+# f - fullscreen
+#alt + f
+#    bspc window -t fullscreen
+alt + f
+    ~/.config/bspwm/misc/full&>/tmp/bspwm.full.plugin.log
 
 #alt + {grave,Tab}
 #    bspc {window,desktop} -f last
@@ -159,13 +165,19 @@ super + f
     firefox
 
 super + t
-    gnome-terminal -e 'htop'
+    gnome-terminal -e htop
 
 super + n
     nautilus
 
+super + shift + n
+    gnome-terminal -e ncmpcpp
+
 super + v
     vimprobable
 
+super + r
+    gnome-terminal -e ranger
+
 super + shift + v
-    vim
+    gnome-terminal -e vim

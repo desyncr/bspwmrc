@@ -11,7 +11,13 @@ case $1 in
     ;;
 esac
 
+if (( $2 )); then
+    max_length=$2
+else
+    max_length=40
+fi
+
 for d in $desktop; do
     list=$HOME/.config/bspwm/misc/window_list.$d
-    [[ -e $list ]] && for l in $(cat $list); do echo -n $(xtitle $l) ' | '; done
+    [[ -e $list ]] && for l in $(cat $list); do title=$(xtitle $l); echo -n ${title:0:$max_length}... ' | '; done
 done

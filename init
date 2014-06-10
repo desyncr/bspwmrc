@@ -31,6 +31,9 @@ cd $HOME &&
 $bspdir/panels/topbar &
     $bspdir/panels/status &
 
+# launch battery checker
+$bspdir/misc/battery_alert &
+
 sleep 5 && $bspdir/misc/hide dzen2-bottom-status-bar
 
 wait
