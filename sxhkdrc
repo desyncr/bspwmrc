@@ -132,6 +132,10 @@ ctrl + shift + {comma,period}
 ctrl + space
     dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000'
 
+# Show dmenu bar (windows)
+ctrl + alt + space
+    ~/.config/bspwm/misc/runnin_apps
+
 # make sxhkd reload its configuration files:
 ctrl + Escape
     pkill -USR1 -x sxhkd
