@@ -1,0 +1,2 @@
+#!/bin/bash
+gnome-terminal && bspc window -t floating && wmctrl -r :ACTIVE: -e 0,760,650,590,110

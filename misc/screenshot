@@ -1,0 +1,2 @@
+#!/bin/bash
+scrot -d3 -e "mv $f ~/Pictures/"

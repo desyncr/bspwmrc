@@ -1,9 +1,17 @@
+# vim: set foldmarker={{,}} foldlevel=0 foldmethod=marker nospell:
 #
 # bspwm hotkeys
 #
+# base path ~/.config/bspwm/
+#
 
+# general hotkeys {{
 alt + super + Escape
-   ~/.config/bspwm/misc/killall ; bspc quit 1
+   ./killall ; bspc quit 1
+
+# make sxhkd reload its configuration files:
+ctrl + Escape
+    pkill -USR1 -x sxhkd
 
 # Close current window
 alt + w
@@ -12,7 +20,25 @@ alt + w
 # Presets window distribution
 #alt + b
 #    bspc desktop -B
+# }}
 
+# mouse settings {{
+# Mouse pointer raises focus on window
+~button1
+    bspc pointer -g focus
+
+# Mouse button to move and resize
+alt + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+alt + !button{1-3}
+    bspc pointer -t %i %i
+
+alt + @button{1-3}
+    bspc pointer -u
+# }}
+
+# window related hotkeys {{
 # s - float
 alt + s
     bspc window -t floating
@@ -21,7 +47,7 @@ alt + s
 #alt + f
 #    bspc window -t fullscreen
 alt + f
-    ~/.config/bspwm/misc/full&>/tmp/bspwm.full.plugin.log
+    ./misc/full&>/tmp/bspwm.full.plugin.log
 
 #alt + {grave,Tab}
 #    bspc {window,desktop} -f last
@@ -38,6 +64,17 @@ alt + {_,shift +} Tab
 alt + {h,j,k,l}
   bspc window -f {left,down,up,right}
 
+# Create a new window on the given spot
+alt + shift + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+
+# alt+ctrl+space cancel spot selection
+alt + space
+    bspc window -p cancel
+
+# }}
+
+# moving around {{
 #alt + y
 #    bspc window -w last.manual
 
@@ -66,15 +103,9 @@ alt + bracket{left,right}
 
 alt + {_,shift +}grave
     bspc desktop -f {next,prev}
+# }}
 
-# Create a new window on the given spot
-alt + shift + {h,j,k,l}
-    bspc window -p {left,down,up,right}
-
-# alt+ctrl+space cancel spot selection
-alt + space
-    bspc window -p cancel
-
+# change window size and position {{
 # Increase window width or height
 alt + super + shift + {h,j,k,l}
     bspc window -e {left,down,up,right} push
@@ -86,20 +117,6 @@ alt + super + {h,j,k,l}
 # Go to or move to a window to given desktop
 alt + {_,ctrl+ }{1-9,0}
     bspc {desktop -f,window -d} ^{1-9,10}
-
-# Mouse pointer raises focus on window
-~button1
-    bspc pointer -g focus
-
-# Mouse button to move and resize
-alt + button{1-3}
-    bspc pointer -g {move,resize_side,resize_corner}
-
-alt + !button{1-3}
-    bspc pointer -t %i %i
-
-alt + @button{1-3}
-    bspc pointer -u
 
 # change window gap at run time
 alt + ctrl + equal
@@ -114,74 +131,93 @@ alt + ctrl + minus
 alt + ctrl + shift + minus
     bspc config top_padding 14; bspc config -d focused window_gap 0
 
-#
-# wm independent hotkeys
-#
+# source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
+# move floating windows (requires baskerville's xdo pacacur -S xdo-git)
+super + {h,l,k,j}
+    xdo move {-x -50,-x +50,-y -50,-y +50}
 
-# Launch terminal
+# Resize floating windows
+super + shift + {h,l,k,j}
+    xdo resize {-w -50,-w +50,-h -50,-h +50}
+
+# }}
+
+# application launchers {{
 ctrl + Return
     gnome-terminal
 
+# floating terminal
 ctrl + shift + Return
-    gnome-terminal && bspc window -t floating && wmctrl -r :ACTIVE: -e 0,760,650,590,110
+    ./misc/floating_terminal
 
+# php storm
+super + s
+    storm
+
+# sublime text / TODO change for textadept or remove
+super + shift + s
+    subl
+
+# chromium
+super + c
+    chromium
+
+# firefox TODO remove
+super + f
+    firefox
+
+# htop TODO remove
+super + t
+    gnome-terminal -e htop
+
+# nautilus
+super + n
+    nautilus
+
+# ncmpcpp
+super + shift + n
+    gnome-terminal -e ncmpcpp
+
+# vimprobable
+super + v
+    vimprobable
+
+# ranger TODO default for ctrl + enter
+super + r
+    gnome-terminal -e ranger
+
+# vim
+super + shift + v
+    gnome-terminal -e vim
+# }}
+
+# application actions {{
+# ncmpcpp next / prev song
 ctrl + shift + {comma,period}
     ncmpcpp {prev,next}
 
 # Show dmenu bar
 ctrl + space
-    dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000'
+    ./misc/application_launcher
 
 # Show dmenu bar (windows)
 ctrl + alt + space
-    ~/.config/bspwm/misc/runnin_apps
-
-# make sxhkd reload its configuration files:
-ctrl + Escape
-    pkill -USR1 -x sxhkd
+    ./misc/application_switcher
 
 # Take an screenshot
 ctrl + Print
-    scrot -d3 -e "mv \$f ~/Pictures/"
-
+    ./misc/screenshot
 
 # Toggle visibility status bar
 ctrl + shift + space
-    ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
+    ./misc/hide dzen2-bottom-status-bar
 
-ctrl + shift + u
-    ~/.config/bspwm/misc/toggle show
-
+# hide currently active window
 ctrl + shift + h
-    ~/.config/bspwm/misc/toggle hide
+    ./misc/toggle hide
 
-# Launchers
-super + s
-    storm
+# unhide lastest window
+ctrl + shift + u
+    ./misc/toggle show
 
-super + shift + s
-    subl
-
-super + c
-    chromium
-
-super + f
-    firefox
-
-super + t
-    gnome-terminal -e htop
-
-super + n
-    nautilus
-
-super + shift + n
-    gnome-terminal -e ncmpcpp
-
-super + v
-    vimprobable
-
-super + r
-    gnome-terminal -e ranger
-
-super + shift + v
-    gnome-terminal -e vim
+# }}

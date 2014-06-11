@@ -12,8 +12,8 @@ ${exec $HOME/.config/bspwm/misc/list} \
 ^i($HOME/.config/bspwm/icons/cpu.xbm) ${cpu cpu0}% | \
 ^i($HOME/.config/bspwm/icons/mem.xbm) ${memperc}% | \
 ^i($HOME/.config/bspwm/icons/bat_full_01.xbm) ${battery_percent BAT0}% | \
-^i($HOME/.config/bspwm/icons/wifi_01.xbm) ${addr eth0} | \
-^i($HOME/.config/bspwm/icons/net_up_01.xbm) ${upspeedf eth0}kb/s | \
-^i($HOME/.config/bspwm/icons/net_down_01.xbm) ${downspeedf eth0}kb/s | \
+^i($HOME/.config/bspwm/icons/wifi_01.xbm) ${addr usb0} | \
+^i($HOME/.config/bspwm/icons/net_up_01.xbm) ${upspeedf usb0}kb/s | \
+^i($HOME/.config/bspwm/icons/net_down_01.xbm) ${downspeedf usb0}kb/s | \
 ^i($HOME/.config/bspwm/icons/spkr_01.xbm) ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | \
 ${time %a %d} ${time %H:%M}    
