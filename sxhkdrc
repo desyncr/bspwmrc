@@ -54,6 +54,10 @@ alt + f
 alt + apostrophe
     bspc window -s last
 
+# Focus other desktop
+alt + ctrl + grave
+    bspc monitor -f next
+
 # Focus next window
 alt + {_,shift +} Tab
   bspc window -f {next,prev}
@@ -79,6 +83,11 @@ alt + space
 # Move current window to the biggest spot
 alt + m
     bspc window -s biggest
+
+# Move window to other monitor
+alt + shift + ctrl + {h,l}
+    bspc window -m {prev,next}
+    bspc monitor -f {prev,next}
 
 # Move window to the {h,j,k,l} position
 alt + ctrl + {h,j,k,l}
