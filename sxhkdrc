@@ -2,12 +2,10 @@
 #
 # bspwm hotkeys
 #
-# base path ~/.config/bspwm/
-#
 
 # general hotkeys {{
 alt + super + Escape
-   ./killall ; bspc quit 1
+   ~/.config/bspwm/misc/killall ; bspc quit 1
 
 # make sxhkd reload its configuration files:
 ctrl + Escape
@@ -47,7 +45,7 @@ alt + s
 #alt + f
 #    bspc window -t fullscreen
 alt + f
-    ./misc/full&>/tmp/bspwm.full.plugin.log
+    ~/.config/bspwm/misc/full&>/tmp/bspwm.full.plugin.log
 
 #alt + {grave,Tab}
 #    bspc {window,desktop} -f last
@@ -148,7 +146,7 @@ ctrl + Return
 
 # floating terminal
 ctrl + shift + Return
-    ./misc/floating_terminal
+  ~/.config/bspwm/misc/floating_terminal
 
 # php storm
 super + s
@@ -198,26 +196,26 @@ ctrl + shift + {comma,period}
 
 # Show dmenu bar
 ctrl + space
-    ./misc/application_launcher
+    ~/.config/bspwm/misc/application_launcher
 
 # Show dmenu bar (windows)
 ctrl + alt + space
-    ./misc/application_switcher
+    ~/.config/bspwm/misc/application_switcher
 
 # Take an screenshot
 ctrl + Print
-    ./misc/screenshot
+    ~/.config/bspwm/misc/screenshot
 
 # Toggle visibility status bar
 ctrl + shift + space
-    ./misc/hide dzen2-bottom-status-bar
+    ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
 # hide currently active window
 ctrl + shift + h
-    ./misc/toggle hide
+    ~/.config/bspwm/misc/toggle hide
 
 # unhide lastest window
 ctrl + shift + u
-    ./misc/toggle show
+    ~/.config/bspwm/misc/toggle show
 
 # }}
