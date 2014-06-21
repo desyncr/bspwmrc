@@ -199,8 +199,7 @@ super + shift + v
 # }}
 
 # application actions {{
-# ncmpcpp next / prev song
-ctrl + shift + {comma,period}
+XF86Audio{Prev,Next}
     ncmpcpp {prev,next}
 
 # Show dmenu bar
