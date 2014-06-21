@@ -227,4 +227,7 @@ ctrl + shift + h
 ctrl + shift + u
     ~/.config/bspwm/misc/toggle show
 
+ctrl + l
+    ~/.config/bspwm/misc/switch.sh
+
 # }}

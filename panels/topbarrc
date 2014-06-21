@@ -2,17 +2,17 @@
 export root=$(dirname $(readlink -f $0))
 read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
 center_indent=$(( ($screen_width / 2) - 30 ))
-right_indent=$(( $screen_width - 65 ))
+right_indent=$(( $screen_width - 80 ))
 
 shift $((OPTIND - 1))
 while read -r line ; do
-    applets='title desktop mail clock hidden'
+    applets='title desktop mail clock hidden lang'
     for applet in $applets; do
         res=$(./panels/applets/$applet $line)
         if [[ $? -eq 0 ]]; then
             eval "$applet"='$res'
         fi
     done
-    printf "%s\n" "   $desktop $title ^pa($center_indent)$clock^pa($right_indent)$hidden $mail ^i($HOME/.config/bspwm/icons/mail.xbm)"
+    printf "%s\n" "   $desktop $title ^pa($center_indent)$clock^pa($right_indent)$hidden $lang $mail ^i($HOME/.config/bspwm/icons/mail.xbm)"
 done
 
