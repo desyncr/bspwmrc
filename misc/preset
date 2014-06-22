@@ -1,0 +1,38 @@
+#!/bin/bash
+preset=$1
+case $preset in
+    'top-left')
+        # top left
+        x=500
+        y=45
+        h=330
+        w=800
+    ;;
+    'bottom-left')
+        # bottom left
+        x=500
+        y=410
+        h=330
+        w=800
+    ;;
+    'vertical-right')
+        # vertical right
+        x=60
+        y=45
+        h=700
+        w=400
+    ;;
+    'small-bottom-left')
+        # small bottom left
+        x=760
+        y=650
+        h=110
+        w=590
+    ;;
+    *)
+        echo 'No preset defined'
+        exit 1
+    ;;
+esac
+bspc window -t floating=on && xdo move -x $x -y $y && xdo resize -h $h -w $w
+

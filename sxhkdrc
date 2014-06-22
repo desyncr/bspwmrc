@@ -36,13 +36,13 @@ alt + {_,shift +}grave
     bspc pointer -g focus
 
 # Mouse button to move and resize
-alt + button{1-3}
+super + shift + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
 
-alt + !button{1-3}
+super + shift + !button{1-3}
     bspc pointer -t %i %i
 
-alt + @button{1-3}
+super + shift + @button{1-3}
     bspc pointer -u
 # }}
 
@@ -89,7 +89,7 @@ alt + space
 #    bspc window -w last.manual
 
 # Move current window to the biggest spot
-ctrl + 2
+alt + ctrl + f
     bspc window -s biggest
 
 # Move window to other monitor
@@ -138,18 +138,28 @@ alt + ctrl + shift + minus
 
 # source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
 # move floating windows (requires baskerville's xdo pacacur -S xdo-git)
-super + {h,l,k,j}
+super + ctrl + shift + {h,l,k,j}
     xdo move {-x -50,-x +50,-y -50,-y +50}
 
 # Resize floating windows
 super + shift + {h,l,k,j}
     xdo resize {-w -50,-w +50,-h -50,-h +50}
 
-super + 1
-    bspc window -t floating=on && xdo move -x 500 -y 55 && xdo resize -h 330  -w 800
+# top left
+super + shift + 1
+    ~/.config/bspwm/misc/preset 'top-left'
 
-super + 2
-    bspc window -t floating=on && xdo move -x 500 -y 420 && xdo resize -h 330  -w 800
+# bottom left
+super + shift + 2
+    ~/.config/bspwm/misc/preset 'bottom-left'
+
+# vertical right
+super + shift + 3
+    ~/.config/bspwm/misc/preset 'vertical-right'
+
+# small bottom left
+super + shift + 4
+    ~/.config/bspwm/misc/preset 'small-bottom-left'
 
 # }}
 
@@ -160,6 +170,10 @@ ctrl + Return
 # floating terminal
 ctrl + shift + Return
   ~/.config/bspwm/misc/floating_terminal
+
+# Toggle visibility status bar
+ctrl + space
+    ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
 # php storm
 super + s
@@ -207,26 +221,22 @@ XF86Audio{Prev,Next}
     ~/.config/bspwm/misc/player {prev,next}
 
 # Show dmenu bar
-ctrl + space
+super + space
     ~/.config/bspwm/misc/application_launcher
 
 # Show dmenu bar (windows)
-ctrl + alt + space
+super + alt + space
     ~/.config/bspwm/misc/application_switcher
 
 # Take an screenshot
 ctrl + Print
     ~/.config/bspwm/misc/screenshot
 
-# Toggle visibility status bar
-ctrl + shift + space
-    ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
-
 # un/hide currently active window
-ctrl + {_,shift} + h
+super + {_,alt} + h
     ~/.config/bspwm/misc/toggle {hide,show}
 
-ctrl + l
+super + l
     ~/.config/bspwm/misc/switch.sh
 
 # }}

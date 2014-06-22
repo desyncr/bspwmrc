@@ -100,9 +100,9 @@ My bspwm settings and custom configurations.
 
     * `Ctrl + Enter`: gnome-terminal
     * `Ctrl + Shift + Enter`: Floating gnome-terminal
-    * `Ctrl + Space`: dmenu (Escape to hide it)
-    * `Ctrl + Alt + Space`: dmenu to switch between aplications
-    * `Ctrl + Shift + Space`: show status bar
+    * `Ctrl + Space`: show status bar
+    * `Super + Space`: dmenu (Escape to hide it)
+    * `Super + Alt + Space`: dmenu to switch between aplications
     * `Super + v`: Vimprobable (web browser)
     * `Super + s`: PhpStorm (PHP IDE)
     * `Super + shift + s`: SublimeText
@@ -110,28 +110,28 @@ My bspwm settings and custom configurations.
     * `Super + f`: Firefox
     * `Super + n`: Nautilus
     * `Super + r`: Ranger
-    * `Ctrl + Print`: Take screenshot
-    * `Ctrl + l`: Switch keyboard layout
+    * `Super + Print`: Take screenshot
+    * `Super + l`: Switch keyboard layout
 
 * Moving windows 
-    * `Ctrl + 2`: Make window bigger
-    * `Alt + Ctrl + {h,j,k,l}`: Move currently focused window
+    * `Alt + Ctrl + f`: Center-focus window
+    * `Alt + Ctrl + {h,j,k,l}`: Move (reposition) currently focused window
     * `Alt + Ctrl + {1,2,3,4,...}`: Move currently focused window to the {n} desktop
     * `Alt + Shift + {h,j,k,l}`: Create a new window on the given spot (`Alt + Space` to cancel)
     * `Alt + Shift + Ctrl + {h,l}`: Move window to the other monitor
+    * `Super + Ctrl + Shift + {h,j,k,l}`: Move window position (float)
 
         
 * Hiding windows
-    * `Ctrl + h`: Hide currently focused window
-    * `Ctrl + Shift + h`: Unhide last hidden window (it's a stack)
+    * `Super + h`: Hide currently focused window
+    * `Super + Alt + h`: Unhide last hidden window (it's a stack)
          
 * Resizing windows
-    * `Super + Shift + h`: Reduce width
-    * `Super + Shift + l`: Increase width 
-    * `Super + Shift + j`: Increase height
-    * `Super + Shift + k`: Reduce height
-    * `Super + 1`: Preset position 1 (top right)
-    * `Super + 2`: Preset position 2 (bottom right)
+    * `Super + Shift + {h,j,k,l}`: Change (increase/decrease) window height/width
+    * `Super + Shift + 1`: Preset position 1 (top right)
+    * `Super + Shift + 2`: Preset position 2 (bottom right)
+    * `Super + Shift + 3`: Preset position 2 (vertical left)
+    * `Super + Shift + 4`: Preset position 2 (small bottom right)
      
 ## Feedback
 

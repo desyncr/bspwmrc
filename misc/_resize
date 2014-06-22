@@ -9,7 +9,7 @@ esac
 resize=$1
 wid=$(xdotool getactivewindow)
 did=$(xdotool get_desktop)
-list=$HOME/.config/bspwm/misc/window_info.$did
+list=$HOME/.config/bspwm/log/_resize.window_info.$did
 log=/tmp/bspwm.resize.plugin.log
 
 log() {

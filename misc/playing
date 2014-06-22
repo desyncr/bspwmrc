@@ -1,5 +1,5 @@
 #!/bin/bash
-log=~/.config/bspwm/misc/playing.log
+log=~/.config/bspwm/log/playing.current_track
 playing=$(cat $log)
 ncmpcpp=$(ncmpcpp --now-playing "{%a - %t}|{%f}")
 if [[ "$playing" != "$ncmpcpp" ]]; then

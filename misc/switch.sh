@@ -1,10 +1,12 @@
 #!/bin/bash
 lang=("us" "es" "fr")
-lang_file=~/.config/bspwm/misc/lang
+lang_file=~/.config/bspwm/log/lang
+log=~/.config/bspwm/log/playing.log
+selector=~/.config/bspwm/misc/select.sh
 default_lang=us
 
 log() {
-    echo $1>>/tmp/switch.log
+    echo $1>>$log
 }
 
 next() {
@@ -39,7 +41,7 @@ next() {
                 exit -2
             fi
             echo $selected > $lang_file
-            ~/.config/bspwm/misc/select.sh $selected
+            $selector $selected
             exit
         fi
     done
