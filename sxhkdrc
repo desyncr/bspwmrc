@@ -224,13 +224,9 @@ ctrl + Print
 ctrl + shift + space
     ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
-# hide currently active window
-ctrl + shift + h
-    ~/.config/bspwm/misc/toggle hide
-
-# unhide lastest window
-ctrl + shift + u
-    ~/.config/bspwm/misc/toggle show
+# un/hide currently active window
+ctrl + {_,shift} + h
+    ~/.config/bspwm/misc/toggle {hide,show}
 
 ctrl + l
     ~/.config/bspwm/misc/switch.sh

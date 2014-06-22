@@ -122,8 +122,8 @@ My bspwm settings and custom configurations.
 
         
 * Hiding windows
-    * `Ctrl + Shift + h`: Hide currently focused window
-    * `Ctrl + Shift + u`: Unhide last hidden window (it's a stack)
+    * `Ctrl + h`: Hide currently focused window
+    * `Ctrl + Shift + h`: Unhide last hidden window (it's a stack)
          
 * Resizing windows
     * `Super + Shift + h`: Reduce width
