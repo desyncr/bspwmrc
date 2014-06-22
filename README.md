@@ -123,8 +123,8 @@ My bspwm settings and custom configurations.
 
         
 * Hiding windows
-    * `Super + h`: Hide currently focused window
-    * `Super + Alt + h`: Unhide last hidden window (it's a stack)
+    * `Super + u`: Hide currently focused window
+    * `Super + Alt + u`: Unhide last hidden window (it's a stack)
          
 * Resizing windows
     * `Super + Shift + {h,j,k,l}`: Change (increase/decrease) window height/width

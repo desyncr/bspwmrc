@@ -233,10 +233,9 @@ ctrl + Print
     ~/.config/bspwm/misc/screenshot
 
 # un/hide currently active window
-super + {_,alt} + h
+super + {_,shift} + u
     ~/.config/bspwm/misc/toggle {hide,show}
 
 super + l
     ~/.config/bspwm/misc/switch.sh
-
 # }}
