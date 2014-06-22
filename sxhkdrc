@@ -49,13 +49,11 @@ alt + @button{1-3}
 # window related hotkeys {{
 # s - float
 alt + s
-    bspc window -t floating
+    ~/.config/bspwm/misc/floating
 
 # f - fullscreen
-#alt + f
-#    bspc window -t fullscreen
 alt + f
-    ~/.config/bspwm/misc/full&>/tmp/bspwm.full.plugin.log
+    ~/.config/bspwm/misc/full
 
 #alt + {grave,Tab}
 #    bspc {window,desktop} -f last

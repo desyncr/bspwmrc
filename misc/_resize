@@ -1,0 +1,113 @@
+#!/bin/zsh
+case $1 in
+    fullscreen|floating) ;;
+    *)
+        echo "Wrong parameter. Must be either fullscreen or float";
+        exit -1
+        ;;
+esac
+resize=$1
+wid=$(xdotool getactivewindow)
+did=$(xdotool get_desktop)
+list=$HOME/.config/bspwm/misc/window_info.$did
+log=/tmp/bspwm.resize.plugin.log
+
+log() {
+    echo $1>>$log
+}
+
+push() {
+    echo $1>>$list
+}
+
+pop() {
+    log "entering pop"
+    id=$(tail -n 1 $list)
+    log "id: $id"
+    local size=$(wc -c $list | cut -d' ' -f1)
+    log "size: $size"
+    local item=$(echo "$id" | wc -c)
+    log "item: $item"
+
+    truncate -s $(( $size - $item )) $list
+    log "result: $id"
+    echo "$id"
+}
+
+is_full_screen() {
+    info=$(xwininfo -id $wid)
+    log "getting info for $wid"
+    log "xwininfo: $info"
+
+    echo $info | grep -q 'Corners:.*+0+0'
+    if [[ $? -eq 0 ]]; then
+        log "grep matched: 1"
+        echo 1
+        return
+    fi
+
+    log "grep didnt matched: 0"
+    echo 0
+}
+
+get_window_dimention() {
+    log "_get_window_dimention called: $2"
+
+    regexp=$2':\s([0-9]+)'
+    sedexp='s/'$2':\s//'
+    res=$(xwininfo -id $1 | egrep -o "$regexp" | sed "$sedexp")
+
+    log "_get_window_dimention result: $res"
+    echo $res
+}
+
+get_window_width() {
+    log 'get_window_width_called'
+    echo $(get_window_dimention $1 'Width')
+}
+
+get_window_height() {
+    log 'get_window_height_called'
+    echo $(get_window_dimention $1 'Height')
+}
+
+log "getting active window handle"
+wid=$(xdotool getactivewindow)
+log "window handle id: $wid"
+
+log "entering is_full_screen"
+fullscreen=$(is_full_screen $wid)
+log "leaving is_full_screen"
+log "is_full_screen result: $res"
+case $fullscreen in
+    1)
+        log "window is full_screen: resizing"
+        wxh=$(pop)
+        log "$wxh"
+
+        log "retrieved width and height: $wxh"
+
+        height=$(echo $wxh | sed 's/.*\s//')
+        width=$(echo $wxh | sed 's/\s.*//')
+        log "xdotool windowsize $wid $width $height"
+        bspc window -t $resize && xdotool windowsize $wid $width $height
+
+        log $?
+
+        ;;
+    0)
+        log "window is not full_screen: saving screen width and height"
+
+        width=$(get_window_width $wid)
+        height=$(get_window_height $wid)
+
+        wxh="$width $height"
+        log "wxh: $wxh"
+        push "$wxh"
+
+        log "making the window fullscreen (if it's not already)"
+        bspc window -t $resize
+        ;;
+esac
+log "done"
+
