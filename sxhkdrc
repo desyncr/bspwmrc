@@ -18,6 +18,16 @@ alt + w
 # Presets window distribution
 #alt + b
 #    bspc desktop -B
+
+# Cycle through desktops
+#alt + bracket{left,right}
+#    bspc desktop -f {prev,next}
+
+#alt + ctrl + {_,shift +}Tab
+#    bspc desktop -f {next,prev}
+
+alt + {_,shift +}grave
+    bspc desktop -f {next,prev}
 # }}
 
 # mouse settings {{
@@ -81,7 +91,7 @@ alt + space
 #    bspc window -w last.manual
 
 # Move current window to the biggest spot
-alt + m
+ctrl + 2
     bspc window -s biggest
 
 # Move window to other monitor
@@ -97,29 +107,19 @@ alt + ctrl + {h,j,k,l}
 #    bspc window -f {next,prev}
 
 # Move window back and forward
-alt + {comma,period}
-    bspc desktop -C {backward,forward}
+#alt + {comma,period}
+#    bspc desktop -C {backward,forward}
 
-# Cycle through desktops
-alt + bracket{left,right}
-    bspc desktop -f {prev,next}
-
-# Move through desktop
-#alt + ctrl + {_,shift +}Tab
-#    bspc desktop -f {next,prev}
-
-alt + {_,shift +}grave
-    bspc desktop -f {next,prev}
 # }}
 
 # change window size and position {{
 # Increase window width or height
-alt + super + shift + {h,j,k,l}
-    bspc window -e {left,down,up,right} push
+#alt + super + shift + {h,j,k,l}
+#    bspc window -e {left,down,up,right} push
 
 # Decrease window width or height
-alt + super + {h,j,k,l}
-    bspc window -e {right,up,down,left} pull
+#alt + super + {h,j,k,l}
+#    bspc window -e {right,up,down,left} pull
 
 # Go to or move to a window to given desktop
 alt + {_,ctrl+ }{1-9,0}
