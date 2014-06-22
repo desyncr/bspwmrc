@@ -147,6 +147,12 @@ super + {h,l,k,j}
 super + shift + {h,l,k,j}
     xdo resize {-w -50,-w +50,-h -50,-h +50}
 
+super + 1
+    bspc window -t floating=on && xdo move -x 500 -y 55 && xdo resize -h 330  -w 800
+
+super + 2
+    bspc window -t floating=on && xdo move -x 500 -y 420 && xdo resize -h 330  -w 800
+
 # }}
 
 # application launchers {{
@@ -200,7 +206,7 @@ super + shift + v
 
 # application actions {{
 XF86Audio{Prev,Next}
-    ncmpcpp {prev,next}
+    ~/.config/bspwm/misc/player {prev,next}
 
 # Show dmenu bar
 ctrl + space

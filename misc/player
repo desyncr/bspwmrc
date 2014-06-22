@@ -1,0 +1,9 @@
+#!/bin/bash
+# prev,next
+command=$1
+
+title="Now playing"
+ncmpcpp $command
+
+text=$(ncmpcpp --now-playing)
+dunstify --replace 9999 "$title" "$text"
