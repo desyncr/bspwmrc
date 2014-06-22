@@ -1,2 +1,3 @@
 #!/bin/bash
-ncmpcpp --now-playing
+~/.config/bspwm/misc/playing
+#ncmpcpp --now-playing

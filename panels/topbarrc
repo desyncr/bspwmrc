@@ -6,7 +6,7 @@ right_indent=$(( $screen_width - 80 ))
 
 shift $((OPTIND - 1))
 while read -r line ; do
-    applets='title desktop mail clock hidden lang'
+    applets='title desktop mail clock hidden lang playing'
     for applet in $applets; do
         res=$(./panels/applets/$applet $line)
         if [[ $? -eq 0 ]]; then

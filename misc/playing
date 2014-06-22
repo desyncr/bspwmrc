@@ -1,0 +1,8 @@
+#!/bin/bash
+log=~/.config/bspwm/misc/playing.log
+playing=$(cat $log)
+ncmpcpp=$(ncmpcpp --now-playing "{%a - %t}|{%f}")
+if [[ "$playing" != "$ncmpcpp" ]]; then
+    dunstify --replace 9999 "Now playing" "$ncmpcpp"
+    echo "$ncmpcpp">$log
+fi
