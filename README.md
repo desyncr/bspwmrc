@@ -76,6 +76,12 @@ My bspwm settings and custom configurations.
 
 * Other dependencies
 
+    * Some features like `preset` and so on depends on the following tools:
+       * xdo: https://github.com/baskerville/xdo
+       * unclutter: https://wiki.archlinux.org/index.php/Unclutter
+       * feh: http://feh.finalrewind.org/
+       * dmenu: http://tools.suckless.org/dmenu/
+
     * Topbar depends on dzen and dunst for notifications. Also xtitle and clock.
         * dunst: http://github.com/knopwob/dunst
         * dzen: http://github.com/robm/dzen
@@ -95,8 +101,7 @@ My bspwm settings and custom configurations.
     * `Alt + {1,2,3,4,...}`: Go to the {n} desktop
     * `Alt + backtick`: Go to the next occupied desktop
     * `Alt + Shift + backtick`: Go to the previous occupied desktop
-    * `Alt + Ctrl + backtick`: Go to the next desktop
-    * `Alt + Ctrl + Shift + backtick`: Go to the next desktop
+    * `Alt + Shift + 1`: Go to the next desktop
 
 * Launching applications
 
@@ -120,7 +125,7 @@ My bspwm settings and custom configurations.
     * `Alt + Ctrl + {h,j,k,l}`: Move (reposition) currently focused window
     * `Alt + Ctrl + {1,2,3,4,...}`: Move currently focused window to the {n} desktop
     * `Alt + Shift + {h,j,k,l}`: Create a new window on the given spot (`Alt + Space` to cancel)
-    * `Alt + Shift + Ctrl + {h,l}`: Move window to the other monitor
+    * `Ctrl + Shift + {h,l}`: Move window to the other monitor
     * `Super + Ctrl + {h,j,k,l}`: Move window position (float)
 
         
