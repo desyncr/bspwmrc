@@ -9,6 +9,9 @@ cd $bspdir
 
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
+# hide mouse on writting
+unclutter -idle 1 &
+
 # gnome settings daemon (for fonts and gtk styling)
 gnome-settings-daemon &
 
