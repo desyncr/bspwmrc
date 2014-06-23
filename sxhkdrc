@@ -27,7 +27,11 @@ alt + w
 #    bspc desktop -f {next,prev}
 
 alt + {_,shift +}grave
+    bspc desktop -f {next,prev}.occupied
+
+alt + ctrl + {_,shift +}grave
     bspc desktop -f {next,prev}
+
 # }}
 
 # mouse settings {{

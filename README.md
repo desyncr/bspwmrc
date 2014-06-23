@@ -93,8 +93,10 @@ My bspwm settings and custom configurations.
     * `Alt + Tab`: Focus next window
     * `Alt + {h,j,k,l}`: Focus h,j,k,l window
     * `Alt + {1,2,3,4,...}`: Go to the {n} desktop
-    * `Alt + backtick`: Go to the next desktop
-    * `Alt + shift + backtick`: Go to the previous desktop
+    * `Alt + backtick`: Go to the next occupied desktop
+    * `Alt + Shift + backtick`: Go to the previous occupied desktop
+    * `Alt + Ctrl + backtick`: Go to the next desktop
+    * `Alt + Ctrl + Shift + backtick`: Go to the next desktop
 
 * Launching applications
 
