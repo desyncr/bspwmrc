@@ -67,7 +67,7 @@ alt + apostrophe
     bspc window -s last
 
 # Focus other desktop
-alt + ctrl + grave
+alt + shift + 1
     bspc monitor -f next
 
 # Focus next window
@@ -97,7 +97,7 @@ alt + ctrl + f
     bspc window -s biggest
 
 # Move window to other monitor
-alt + shift + ctrl + {h,l}
+ctrl + shift + {h,l}
     bspc window -m {prev,next}
     bspc monitor -f {prev,next}
 
