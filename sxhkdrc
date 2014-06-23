@@ -226,6 +226,12 @@ super + shift + v
 XF86Audio{Prev,Next}
     ~/.config/bspwm/misc/player {prev,next}
 
+XF86AudioStop
+    ~/.config/bspwm/misc/player stop
+
+XF86AudioPlay
+    ~/.config/bspwm/misc/player play
+
 # Show dmenu bar
 super + space
     ~/.config/bspwm/misc/application_launcher

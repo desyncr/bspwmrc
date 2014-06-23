@@ -2,6 +2,9 @@
 log=~/.config/bspwm/log/playing.current_track
 playing=$(cat $log)
 ncmpcpp=$(ncmpcpp --now-playing "{%a - %t}|{%f}")
+if [[ ! "$ncmpcpp" ]]; then
+    exit
+fi
 if [[ "$playing" != "$ncmpcpp" ]]; then
     dunstify --replace 9999 "Now playing" "$ncmpcpp"
     echo "$ncmpcpp">$log

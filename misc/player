@@ -6,4 +6,6 @@ title="Now playing"
 ncmpcpp $command
 
 text=$(ncmpcpp --now-playing "{%a - %t}|{%f}")
-dunstify --replace 9999 "$title" "$text"
+if [[ "$text" ]]; then
+    dunstify --replace 9999 "$title" "$text"
+fi
