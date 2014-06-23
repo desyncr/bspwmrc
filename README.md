@@ -121,7 +121,7 @@ My bspwm settings and custom configurations.
     * `Alt + Ctrl + {1,2,3,4,...}`: Move currently focused window to the {n} desktop
     * `Alt + Shift + {h,j,k,l}`: Create a new window on the given spot (`Alt + Space` to cancel)
     * `Alt + Shift + Ctrl + {h,l}`: Move window to the other monitor
-    * `Super + Ctrl + Shift + {h,j,k,l}`: Move window position (float)
+    * `Super + Ctrl + {h,j,k,l}`: Move window position (float)
 
         
 * Hiding windows
@@ -134,6 +134,7 @@ My bspwm settings and custom configurations.
     * `Super + Shift + 2`: Preset position 2 (bottom right)
     * `Super + Shift + 3`: Preset position 2 (vertical left)
     * `Super + Shift + 4`: Preset position 2 (small bottom right)
+    * `Super + plus/minus/equal/0`: Increase/decrease/restore/remove windows gap
      
 ## Feedback
 

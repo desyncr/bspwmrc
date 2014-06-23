@@ -128,21 +128,23 @@ alt + {_,ctrl+ }{1-9,0}
     bspc {desktop -f,window -d} ^{1-9,10}
 
 # change window gap at run time
-alt + ctrl + equal
+super + plus
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` + 5 ))
 
-alt + ctrl + shift + equal
+# Restore original gap
+super + equal
     bspc config top_padding 6; bspc config -d focused window_gap 15
 
-alt + ctrl + minus
+super + minus
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` - 5 ))
 
-alt + ctrl + shift + minus
+# Remove gap
+super + 0
     bspc config top_padding 14; bspc config -d focused window_gap 0
 
 # source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
 # move floating windows (requires baskerville's xdo pacacur -S xdo-git)
-super + ctrl + shift + {h,l,k,j}
+super + ctrl + {h,l,k,j}
     xdo move {-x -50,-x +50,-y -50,-y +50}
 
 # Resize floating windows
