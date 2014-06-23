@@ -7,5 +7,5 @@ ncmpcpp $command
 
 text=$(ncmpcpp --now-playing "{%a - %t}|{%f}")
 if [[ "$text" ]]; then
-    dunstify --replace 9999 "$title" "$text"
+    dunstify --timeout=1 --replace 9999 "$title" "$text"
 fi

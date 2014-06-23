@@ -6,6 +6,6 @@ if [[ ! "$ncmpcpp" ]]; then
     exit
 fi
 if [[ "$playing" != "$ncmpcpp" ]]; then
-    dunstify --replace 9999 "Now playing" "$ncmpcpp"
+    dunstify --timeout=1 --replace 9999 "Now playing" "$ncmpcpp"
     echo "$ncmpcpp">$log
 fi
