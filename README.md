@@ -101,7 +101,8 @@ My bspwm settings and custom configurations.
     * `Alt + {1,2,3,4,...}`: Go to the {n} desktop
     * `Alt + backtick`: Go to the next occupied desktop
     * `Alt + Shift + backtick`: Go to the previous occupied desktop
-    * `Alt + Shift + 1`: Go to the next desktop
+    * `Alt + Shift + 1`: Go to the prev monitor
+    * `Alt + Shift + 2`: Go to the next monitor
 
 * Launching applications
 
@@ -109,7 +110,7 @@ My bspwm settings and custom configurations.
     * `Ctrl + Shift + Enter`: Floating gnome-terminal
     * `Ctrl + Space`: show status bar
     * `Super + Space`: dmenu (Escape to hide it)
-    * `Super + Alt + Space`: dmenu to switch between aplications
+    * `Super + Shift + Space`: dmenu to switch between aplications
     * `Super + v`: Vimprobable (web browser)
     * `Super + s`: PhpStorm (PHP IDE)
     * `Super + shift + s`: SublimeText

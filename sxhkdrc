@@ -68,6 +68,9 @@ alt + apostrophe
 
 # Focus other desktop
 alt + shift + 1
+    bspc monitor -f prev
+
+alt + shift + 2
     bspc monitor -f next
 
 # Focus next window
@@ -237,7 +240,7 @@ super + space
     ~/.config/bspwm/misc/application_launcher
 
 # Show dmenu bar (windows)
-super + alt + space
+super + shift + space
     ~/.config/bspwm/misc/application_switcher
 
 # Take an screenshot
