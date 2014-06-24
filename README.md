@@ -138,8 +138,9 @@ My bspwm settings and custom configurations.
     * `Super + Shift + {h,j,k,l}`: Change (increase/decrease) window height/width
     * `Super + Shift + 1`: Preset position 1 (top right)
     * `Super + Shift + 2`: Preset position 2 (bottom right)
-    * `Super + Shift + 3`: Preset position 2 (vertical left)
-    * `Super + Shift + 4`: Preset position 2 (small bottom right)
+    * `Super + Shift + 3`: Preset position 3 (vertical left)
+    * `Super + Shift + 4`: Preset position 4 (wide vertial left)
+    * `Super + Shift + 5`: Preset position 5 (small bottom right)
     * `Super + plus/minus/equal/0`: Increase/decrease/restore/remove windows gap
      
 ## Feedback

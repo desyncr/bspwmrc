@@ -29,6 +29,13 @@ case $preset in
         h=110
         w=590
     ;;
+    'wide-vertical-left')
+        x=500
+        y=45
+        h=700
+        w=800
+
+    ;;
     *)
         echo 'No preset defined'
         exit 1

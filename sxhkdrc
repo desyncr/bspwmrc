@@ -166,8 +166,12 @@ super + shift + 2
 super + shift + 3
     ~/.config/bspwm/misc/preset 'vertical-right'
 
+# wide vertical left
+super + shift + 4;
+    ~/.config/bspwm/misc/preset 'wide-vertical-left'
+
 # small bottom left
-super + shift + 4
+super + shift + 5
     ~/.config/bspwm/misc/preset 'small-bottom-left'
 
 # }}
