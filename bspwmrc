@@ -3,15 +3,11 @@ bspc monitor -d • • • • • • • • • •
 
 bspc config border_width            1
 bspc config window_gap              15
-bspc config bottom_padding          0
 bspc config split_ratio             0.70
-
-bspc config borderless_monocle      true
-bspc config gapless_monocle         true
+bspc config bottom_padding          0
 bspc config auto_cancel             true
-bspc config auto_alternate          true
-bspc config adaptative_raise        true
-bspc config focus_follows_pointer   true
+bspc config focus_follows_pointer   false
+bspc config pointer_follows_monitor true
 
 trap 'jobs -p | xargs kill' EXIT
 
