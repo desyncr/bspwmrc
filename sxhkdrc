@@ -108,6 +108,10 @@ ctrl + shift + {h,l}
 alt + ctrl + {h,j,k,l}
     bspc window -s {left,down,up,right}
 
+# wtf why the above definition doesnt work?
+alt + ctrl + l
+    bspc window -s right
+
 #alt + {_,shift + }c
 #    bspc window -f {next,prev}
 
