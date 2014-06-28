@@ -14,6 +14,11 @@ if $(hash unclutter); then
     unclutter -idle 1 &
 fi
 
+# music daemon
+if $(hash mpd); then
+    mpd &
+fi
+
 # gnome settings daemon (for fonts and gtk styling)
 gnome-settings-daemon &
 

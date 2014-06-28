@@ -1,15 +1,16 @@
 #!/bin/bash
-# see https://github.com/baskerville/bspwm/issues/143#issuecomment-42646522
 bspc config border_width            1
 bspc config window_gap              15
-bspc monitor -d • • • • • • • • • •
 
 bspc config split_ratio             0.70
 bspc config bottom_padding          0
 bspc config auto_cancel             true
 bspc config focus_follows_pointer   false
 bspc config pointer_follows_monitor true
+bspc config auto_alternate          true
 
+# see https://github.com/baskerville/bspwm/issues/143#issuecomment-42646522
+bspc monitor -d • • • • • • • • • •
 trap 'jobs -p | xargs kill' EXIT
 
 ~/.config/bspwm/init &
