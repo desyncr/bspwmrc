@@ -1,3 +1,4 @@
 #!/bin/bash
 # g,x,y,w,h
-gnome-terminal && bspc window -t floating && wmctrl -r :ACTIVE: -e 0,500,410,800,330
+gnome-terminal &&
+    ~/.config/bspwm/misc/preset 'small-bottom-left'

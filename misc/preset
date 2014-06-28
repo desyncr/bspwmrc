@@ -24,10 +24,10 @@ case $preset in
     ;;
     'small-bottom-left')
         # small bottom left
-        x=760
-        y=650
-        h=110
-        w=590
+        x=717
+        y=670
+        h=80
+        w=632
     ;;
     'wide-vertical-left')
         x=500

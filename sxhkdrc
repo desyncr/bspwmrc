@@ -55,6 +55,10 @@ super + shift + @button{1-3}
 alt + s
     ~/.config/bspwm/misc/floating
 
+# sticky window
+alt + shift + s
+    bspc window -t sticky
+
 # f - fullscreen
 alt + f
     ~/.config/bspwm/misc/full
