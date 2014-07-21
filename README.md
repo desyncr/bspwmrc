@@ -108,9 +108,9 @@ My bspwm settings and custom configurations.
 
     * `Ctrl + Enter`: gnome-terminal
     * `Ctrl + Shift + Enter`: Floating gnome-terminal
-    * `Ctrl + Space`: show status bar
-    * `Super + Space`: dmenu (Escape to hide it)
-    * `Super + Shift + Space`: dmenu to switch between aplications
+    * `Ctrl + Space`: dmenu (Escape to hide it)
+    * `Ctrl + Shift + Space`: dmenu to switch between aplications
+    * `Super + Space`: show status bar
     * `Super + v`: Vimprobable (web browser)
     * `Super + s`: PhpStorm (PHP IDE)
     * `Super + shift + s`: SublimeText
@@ -142,6 +142,10 @@ My bspwm settings and custom configurations.
     * `Super + Shift + 4`: Preset position 4 (wide vertial left)
     * `Super + Shift + 5`: Preset position 5 (small bottom right)
     * `Super + plus/minus/equal/0`: Increase/decrease/restore/remove windows gap
+
+* Terminal transparency
+    * `Super + Alt + minus`: Decrease transparency
+    * `Super + Alt + plus`: Increase transparency
      
 ## Feedback
 

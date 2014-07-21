@@ -1,0 +1,15 @@
+#!/bin/bash
+value=$1
+transparency=~/.config/bspwm/log/_terminal_transparency
+case $value in
+    'increment')
+        value=$(cat $transparency)
+        let value="($value - 1)"
+    ;;
+    'decrement')
+        value=$(cat $transparency)
+        let value="($value + 1)"
+    ;;
+esac
+echo $value>$transparency
+gconftool -t float -s /apps/gnome-terminal/profiles/Default/background_darkness "0.$value"

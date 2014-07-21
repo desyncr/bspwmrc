@@ -153,8 +153,14 @@ super + minus
 super + 0
     bspc config top_padding 14; bspc config -d focused window_gap 0
 
-# source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
-# move floating windows (requires baskerville's xdo pacacur -S xdo-git)
+super + alt + minus
+    ~/.config/bspwm/misc/terminal_transparency decrement
+
+super + alt + plus
+    ~/.config/bspwm/misc/terminal_transparency increment
+
+source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
+move floating windows (requires baskerville's xdo pacacur -S xdo-git)
 super + ctrl + {h,l,k,j}
     xdo move {-x -50,-x +50,-y -50,-y +50}
 
@@ -193,7 +199,7 @@ ctrl + shift + Return
   ~/.config/bspwm/misc/floating_terminal
 
 # Toggle visibility status bar
-ctrl + space
+super + space
     ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
 # php storm
@@ -248,11 +254,11 @@ XF86AudioPlay
     ~/.config/bspwm/misc/player play
 
 # Show dmenu bar
-super + space
+ctrl + space
     ~/.config/bspwm/misc/application_launcher
 
 # Show dmenu bar (windows)
-super + shift + space
+ctrl + shift + space
     ~/.config/bspwm/misc/application_switcher
 
 # Take an screenshot

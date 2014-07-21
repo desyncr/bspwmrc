@@ -24,6 +24,8 @@ gnome-settings-daemon &
 
 # set background
 # gsettings set org.gnome.desktop.background picture-uri file:///home/user/Pictures/wallpaper.png
+$bspdir/misc/terminal_transparency 0.6
+
 feh --bg-tile $bspdir/wallpaper.jpg &
 
 #  gnome-terminal -e ranger &
