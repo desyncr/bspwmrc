@@ -159,8 +159,8 @@ super + alt + minus
 super + alt + plus
     ~/.config/bspwm/misc/terminal_transparency increment
 
-source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
-move floating windows (requires baskerville's xdo pacacur -S xdo-git)
+# source: http://crunchbang.org/forums/viewtopic.php?pid=378171#p378171
+# move floating windows (requires baskerville's xdo pacacur -S xdo-git)
 super + ctrl + {h,l,k,j}
     xdo move {-x -50,-x +50,-y -50,-y +50}
 
@@ -192,7 +192,7 @@ super + shift + 5
 
 # application launchers {{
 ctrl + Return
-    gnome-terminal
+    gnome-terminal --working-directory=~
 
 # floating terminal
 ctrl + shift + Return

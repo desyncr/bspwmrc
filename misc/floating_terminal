@@ -1,4 +1,4 @@
 #!/bin/bash
 # g,x,y,w,h
-gnome-terminal &&
+gnome-terminal --working-directory=~ &&
     ~/.config/bspwm/misc/preset 'small-bottom-left'
