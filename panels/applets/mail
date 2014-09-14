@@ -1,5 +1,5 @@
 #!/bin/zsh
-mail_dir=$HOME/.mail/private/INBOX/new
+mail_dir="$HOME/.mail/private/[Gmail].All Mail/new"
 interval=300
 if [ -e $mail_dir ]; then
     change=$(stat -c %Y $mail_dir)
