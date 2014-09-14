@@ -18,6 +18,6 @@ else
 fi
 
 for d in $desktop; do
-    list=$HOME/.config/bspwm/misc/window_list.$d
+    list=$HOME/.config/bspwm/log/toggle.window_list.$d
     [[ -e $list ]] && for l in $(cat $list); do title=$(xtitle $l); echo -n ${title:0:$max_length}... ' | '; done
 done
