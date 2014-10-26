@@ -1,2 +1,2 @@
 #!/bin/bash
-dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000'
+dmenu_run -b -p '>' -fn 'lucidasans-8' -nf '#666666' -nb '#000000' -sf '#ffffff' -sb '#000000' &
