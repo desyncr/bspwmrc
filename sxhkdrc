@@ -203,45 +203,10 @@ ctrl + shift + Return
 super + space
     ~/.config/bspwm/misc/hide dzen2-bottom-status-bar
 
-# php storm
-super + s
-    storm
-
-# sublime text / TODO change for textadept or remove
-super + shift + s
-    subl
-
 # chromium
 super + c
     chromium
 
-# firefox TODO remove
-super + f
-    firefox
-
-# htop TODO remove
-super + t
-    gnome-terminal -e htop
-
-# nautilus
-super + n
-    nautilus
-
-# ncmpcpp
-super + shift + n
-    gnome-terminal -e ncmpcpp
-
-# vimprobable
-super + v
-    vimprobable
-
-# ranger TODO default for ctrl + enter
-super + r
-    gnome-terminal -e ranger
-
-# vim
-super + shift + v
-    gnome-terminal -e vim
 # }}
 
 # application actions {{

@@ -112,13 +112,7 @@ My bspwm settings and custom configurations.
     * `Ctrl + Space`: dmenu (Escape to hide it)
     * `Ctrl + Shift + Space`: dmenu to switch between aplications
     * `Super + Space`: show status bar
-    * `Super + v`: Vimprobable (web browser)
-    * `Super + s`: PhpStorm (PHP IDE)
-    * `Super + shift + s`: SublimeText
     * `Super + c`: Chromium
-    * `Super + f`: Firefox
-    * `Super + n`: Nautilus
-    * `Super + r`: Ranger
     * `Super + Print`: Take screenshot
     * `Super + l`: Switch keyboard layout
 
