@@ -95,7 +95,8 @@ My bspwm settings and custom configurations.
     * `Ctrl + Esc`: Reload sxhkd configuration
     * `Alt + w`: Close current window
     * `Alt + f`: Full screen current window
-    * `Alt + s`: Float current window
+    * `Alt + Shift + f`: Float current window
+    * `Alt + s`: Sticky current window
     * `Alt + Tab`: Focus next window
     * `Alt + {h,j,k,l}`: Focus h,j,k,l window
     * `Alt + {1,2,3,4,...}`: Go to the {n} desktop
