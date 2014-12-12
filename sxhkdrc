@@ -9,7 +9,7 @@ alt + super + Escape
 
 # make sxhkd reload its configuration files:
 ctrl + Escape
-    pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd; dunstify "Sxhkd configuration reloaded"
 
 # Close current window
 alt + w
