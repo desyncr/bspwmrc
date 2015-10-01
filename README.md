@@ -110,7 +110,7 @@ My bspwm settings and custom configurations.
     * `Ctrl + Enter`: gnome-terminal
     * `Ctrl + Shift + Enter`: Floating gnome-terminal
     * `Ctrl + Space`: dmenu (Escape to hide it)
-    * `Ctrl + Shift + Space`: dmenu to switch between aplications
+    * `Ctrl + Shift + Space`: dmenu to switch between applications
     * `Super + Space`: show status bar
     * `Super + c`: Chromium
     * `Super + Print`: Take screenshot
